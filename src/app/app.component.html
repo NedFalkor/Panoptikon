@@ -1,10 +1,35 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Prosto+One&display=swap" rel="stylesheet">
-
-<style> @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Prosto+One&display=swap');
- </style>
-
-<h1 class="title is-1">Panoptikon</h1>
-
-<router-outlet></router-outlet>
+<div id="app">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a href="#" class="navbar-brand">Panoptikon</a>
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+        <li class="nav-item">
+          <a href="/home" class="nav-link" routerLink="home">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">Utilisateur</a>
+        </li>
+      </ul>
+  
+      <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+        <li class="nav-item">
+          <a href="/register" class="nav-link" routerLink="register">S'inscrire</a>
+        </li>
+        <li class="nav-item">
+          <a href="/login" class="nav-link" routerLink="login">Se connecter</a>
+        </li>
+      </ul>
+  
+      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+        </li>
+        <li class="nav-item">
+          <a href class="nav-link" (click)="logout()">Déconnexion</a>
+        </li>
+      </ul>
+    </nav>
+  
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>  

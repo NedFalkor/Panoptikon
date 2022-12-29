@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AuthPageComponent } from './auth/auth-page/auth-page.component';
+import { Routes, RouterModule } from '@angular/router';
+
+import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
+import { HomeComponent } from './views/main-menu/main-menu.component';
+import { ProfileComponent } from './account/account-settings/account-settings.component';
 
 const routes: Routes = [
-
-  {path: 'auth',
-   children: [
-    {path: 'auth-page', component: AuthPageComponent}
-   ]
-  },
+  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({

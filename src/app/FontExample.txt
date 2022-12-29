@@ -1,0 +1,15 @@
+    font-family: 'Aboreto', cursive;
+
+    font-family: 'BIZ UDMincho', serif;
+
+    font-family: 'Figtree', sans-serif;
+
+    font-family: 'Josefin Sans', sans-serif;
+
+    font-family: 'Prosto One', cursive;
+
+    font-family: 'Reem Kufi Fun', sans-serif;
+
+    font-family: 'Silkscreen', cursive;
+
+    font-family: 'Unbounded', cursive;

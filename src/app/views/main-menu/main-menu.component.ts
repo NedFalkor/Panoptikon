@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from './services/user.service';
 
 @Component({
-  selector: 'app-main-menu',
+  selector: 'app-home',
   templateUrl: './main-menu.component.html',
-  styleUrls: ['./main-menu.component.scss']
+  styleUrls: ['./main-menu.component.css']
 })
-export class MainMenuComponent implements OnInit {
+export class HomeComponent implements OnInit {
+  content?: string;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.getPublicContent().subscribe(
+      data => {
+        this.content = data;
+      },
+      err => {
+        this.content = JSON.parse(err.error).message;
+      }
+    );
   }
-
 }
