@@ -6,17 +6,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './footer-header/header/header.component';
-import { FooterComponent } from './footer-header/footer/footer.component';
+import { HeaderComponent } from './views/header/header.component';
+import { FooterComponent } from './views/footer/footer.component';
 import { MainMenuComponent } from './views/main-menu/main-menu.component';
-import { AccountChannelComponent } from './account/account-channel/account-channel.component';
-import { AccountSettingsComponent } from './account/account-settings/account-settings.component';
+import { AccountChannelComponent } from './views/account/account-channel/account-channel.component';
+import { AccountSettingsComponent } from './views/account/account-settings/account-settings.component';
 import { SearchPageComponent } from './search/search-page/search-page.component';
-import { AddFriendComponent } from './add/add-friend/add-friend.component';
+import { AddFriendComponent } from './views/add/add-friend/add-friend.component';
 import { SearchFriendComponent } from './search/search-friend/search-friend.component';
-import { ViewPageComponent } from './views/view-page/view-page.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './views/register/register.component';
+import { LoginComponent } from './views/login/login.component';
+import { AddVideoComponent } from './views/add/add-video/add-video.component';
+import { VideoViewComponent } from './views/video-view/video-view.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +30,10 @@ import { LoginComponent } from './auth/login/login.component';
     SearchPageComponent,
     AddFriendComponent,
     SearchFriendComponent,
-    ViewPageComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    AddVideoComponent,
+    VideoViewComponent
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { RegisterComponent } from './auth/register/register.component';
-import { LoginComponent } from './auth/login/login.component';
-import { HomeComponent } from './views/main-menu/main-menu.component';
-import { ProfileComponent } from './account/account-settings/account-settings.component';
+import { RegisterComponent } from './views/register/register.component';
+import { LoginComponent } from './views/login/login.component';
+import { MainMenuComponent } from './views/main-menu/main-menu.component';
+import { AccountSettingsComponent } from './views/account/account-settings/account-settings.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'main-menu', component: MainMenuComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'account-settings', component: AccountSettingsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

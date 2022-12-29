@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './services/user.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-main-menu',
   templateUrl: './main-menu.component.html',
-  styleUrls: ['./main-menu.component.css']
+  styleUrls: ['./main-menu.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class MainMenuComponent implements OnInit {
   content?: string;
 
   constructor(private userService: UserService) { }
