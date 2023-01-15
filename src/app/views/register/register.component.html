@@ -1,54 +1,43 @@
-<!-- <div class="col-is-12">
-  <div class="card card-container">
-    <img id="profile-img" src="${user.picture}" class="profile-img-card" />
-    <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-      <div class="form-group">
-        <label for="username">Nom d'Utilisateur</label>
-        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3"
-          maxlength="20" #username="ngModel" />
-        <div class="alert-danger" *ngIf="username.errors && f.submitted">
-          <div *ngIf="username.errors.required">Le nom d'utilisateur est requis</div>
-          <div *ngIf="username.errors.minlength">
-            Le nom d'utilisateur doit comporter au moins 3 caractères
+<div>
+  <h4>Register</h4>
+  <div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div>
+              <label>Prénom</label>
+              <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+              <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="f.firstName.errors.required">Le prénom est requis !</div>
+              </div>
           </div>
-          <div *ngIf="username.errors.maxlength">
-            Le nom d'utilisateur doit comporter 20 caractères maximum
+          <div>
+              <label>Nom</label>
+              <input type="text" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+              <div *ngIf="submitted && f.lastName.errors">
+                  <div *ngIf="f.lastName.errors.required">Le nom est requis</div>
+              </div>
           </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email
-          #email="ngModel" />
-        <div class="alert-danger" *ngIf="email.errors && f.submitted">
-          <div *ngIf="email.errors.required">L'adresse EMail est requise</div>
-          <div *ngIf="email.errors.email">
-            L'adresse EMail doit être valide
+          <div class="mb-3">
+              <label>Nom d'utilisateur</label>
+              <input type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+              <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                  <div *ngIf="f.username.errors.required">Le nom d'utilisateur est requis</div>
+              </div>
           </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
-          #password="ngModel" />
-        <div class="alert-danger" *ngIf="password.errors && f.submitted">
-          <div *ngIf="password.errors.required">Le mot de passe est requis</div>
-          <div *ngIf="password.errors.minlength">
-            Le mot de passe doit comporter au moins 6 caractères.
+          <div>
+              <label>Mot de passe</label>
+              <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+              <div *ngIf="submitted && f.password.errors">
+                  <div *ngIf="f.password.errors.required">Le mot de passe est requis !</div>
+                  <div *ngIf="f.password.errors.minlength">Le mot de passe doit comporter au moins 6 caractères !</div>
+              </div>
           </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary btn-block">S'inscrire</button>
-      </div>
-
-      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-        Inscription échouée :( ! <br />{{ errorMessage }}
-      </div>
-    </form>
-
-    <div class="alert alert-success" *ngIf="isSuccessful">
-      Votre inscription est réussie :) !
-    </div>
+          <div>
+              <button [disabled]="loading">
+                  <span *ngIf="loading"></span>
+                  S'enregistrer
+              </button>
+              <a routerLink="../login">Annuler</a>
+          </div>
+      </form>
   </div>
-</div> -->
+</div>
