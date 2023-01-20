@@ -18,6 +18,7 @@ import { RegisterComponent } from './views/register/register.component';
 import { AddVideoComponent } from './views/add/add-video/add-video.component';
 import { VideoViewComponent } from './views/video-view/video-view.component';
 import { AlertComponent } from './modals/alert/alert.component';
+import { SuccessLoginComponent } from './views/success-login/success-login.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AlertComponent } from './modals/alert/alert.component';
     RegisterComponent,
     AddVideoComponent,
     VideoViewComponent,
-    AlertComponent
+    AlertComponent,
+    SuccessLoginComponent
   ],
   imports: [
     BrowserModule,
