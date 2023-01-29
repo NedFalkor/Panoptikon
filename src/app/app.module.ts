@@ -12,13 +12,10 @@ import { MainMenuComponent } from './views/main-menu/main-menu.component';
 import { AccountChannelComponent } from './views/account/account-channel/account-channel.component';
 import { AccountSettingsComponent } from './views/account/account-settings/account-settings.component';
 import { SearchPageComponent } from './views/search/search-page/search-page.component';
-import { AddFriendComponent } from './views/add/add-friend/add-friend.component';
 import { SearchFriendComponent } from './views/search/search-friend/search-friend.component';
-import { RegisterComponent } from './views/register/register.component';
 import { AddVideoComponent } from './views/add/add-video/add-video.component';
 import { VideoViewComponent } from './views/video-view/video-view.component';
-import { AlertComponent } from './modals/alert/alert.component';
-import { SuccessLoginComponent } from './views/success-login/success-login.component';
+
 
 @NgModule({
   declarations: [
@@ -29,13 +26,10 @@ import { SuccessLoginComponent } from './views/success-login/success-login.compo
     AccountChannelComponent,
     AccountSettingsComponent,
     SearchPageComponent,
-    AddFriendComponent,
     SearchFriendComponent,
-    RegisterComponent,
     AddVideoComponent,
     VideoViewComponent,
-    AlertComponent,
-    SuccessLoginComponent
+
   ],
   imports: [
     BrowserModule,
