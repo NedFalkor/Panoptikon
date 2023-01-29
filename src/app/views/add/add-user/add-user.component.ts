@@ -5,11 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './add-user.component.html',
   styleUrls: ['./add-user.component.scss']
 })
-export class AddUserComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class AddUserComponent {
+  title = 'UserSearch';
+  searchText = '';
 
 }

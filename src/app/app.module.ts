@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './routes/app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './views/header/header.component';
@@ -16,8 +16,7 @@ import { VideoViewComponent } from './views/video-view/video-view.component';
 import { RegisterComponent } from './views/register/register.component';
 import { SubscriptionComponent } from './views/subscription/subscription.component';
 import { AddUserComponent } from './views/add/add-user/add-user.component';
-import { SearchFriendComponent } from './views/search/search-friend/search-friend.component';
-import { FilterPipe } from './views/search/search-friend/filterUser.pipe';
+import { FilterPipe } from './views/add/add-user/filterUser.pipe';
 
 
 @NgModule({
@@ -28,7 +27,6 @@ import { FilterPipe } from './views/search/search-friend/filterUser.pipe';
     MainMenuComponent,
     AccountChannelComponent,
     SearchPageComponent,
-    SearchFriendComponent,
     AddVideoComponent,
     VideoViewComponent,
     RegisterComponent,
