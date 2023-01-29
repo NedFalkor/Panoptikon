@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-main-menu',
@@ -9,16 +8,9 @@ import { UserService } from 'src/app/services/user.service';
 export class MainMenuComponent implements OnInit {
   content?: string;
 
-  constructor(private userService: UserService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.userService.getPublicContent().subscribe(
-      data => {
-        this.content = data;
-      },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
+
   }
 }

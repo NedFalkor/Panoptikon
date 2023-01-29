@@ -10,11 +10,14 @@ import { HeaderComponent } from './views/header/header.component';
 import { FooterComponent } from './views/footer/footer.component';
 import { MainMenuComponent } from './views/main-menu/main-menu.component';
 import { AccountChannelComponent } from './views/account/account-channel/account-channel.component';
-import { AccountSettingsComponent } from './views/account/account-settings/account-settings.component';
 import { SearchPageComponent } from './views/search/search-page/search-page.component';
-import { SearchFriendComponent } from './views/search/search-friend/search-friend.component';
 import { AddVideoComponent } from './views/add/add-video/add-video.component';
 import { VideoViewComponent } from './views/video-view/video-view.component';
+import { RegisterComponent } from './views/register/register.component';
+import { SubscriptionComponent } from './views/subscription/subscription.component';
+import { AddUserComponent } from './views/add/add-user/add-user.component';
+import { SearchFriendComponent } from './views/search/search-friend/search-friend.component';
+import { FilterPipe } from './views/search/search-friend/filterUser.pipe';
 
 
 @NgModule({
@@ -24,11 +27,14 @@ import { VideoViewComponent } from './views/video-view/video-view.component';
     FooterComponent,
     MainMenuComponent,
     AccountChannelComponent,
-    AccountSettingsComponent,
     SearchPageComponent,
     SearchFriendComponent,
     AddVideoComponent,
     VideoViewComponent,
+    RegisterComponent,
+    SubscriptionComponent,
+    AddUserComponent,
+    FilterPipe
 
   ],
   imports: [

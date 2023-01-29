@@ -1,1 +1,15 @@
-<p>search-friend works!</p>
+<div class="content" role="main">
+    <div class="card">
+      <div class="form-group">
+        <label for="search-text">Rechercher un utilisateur</label>
+        <input type="name" class="form-control" id="search-text" aria-describedby="search-text" 
+           placeholder="Rechercher un utilisateur" 
+          autofocus>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let u of users | appFilter: searchText">
+          {{u}}
+        </li>
+      </ul>
+    </div>
+  </div>
