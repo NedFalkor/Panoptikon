@@ -1,0 +1,18 @@
+<div class="container mt-5">
+    <h2>Capture d'Image à la Webcam</h2>
+    <div class="col-md-12">
+      <webcam
+        [trigger]="invokeObservable"
+        (imageCapture)="captureImg($event)"
+      ></webcam>
+    </div>
+    <div class="col-md-12">
+      <button class="btn btn-danger" (click)="getSnapshot()">
+        Prenez une photo
+      </button>
+    </div>
+    <div class="col-12">
+      <div id="results">Voici votre photo :)</div>
+      <img [src]="webcamImage?.imageAsDataUrl" height="640" />
+    </div>
+  </div>

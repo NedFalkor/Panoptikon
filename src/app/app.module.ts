@@ -17,6 +17,8 @@ import { RegisterComponent } from './views/register/register.component';
 import { SubscriptionComponent } from './views/subscription/subscription.component';
 import { AddUserComponent } from './views/add/add-user/add-user.component';
 import { FilterPipe } from './views/add/add-user/filterUser.pipe';
+import { WebcamModule } from 'ngx-webcam';
+import { CaptureImageComponent } from './views/captureMedia/capture-image/capture-image.component';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { FilterPipe } from './views/add/add-user/filterUser.pipe';
     RegisterComponent,
     SubscriptionComponent,
     AddUserComponent,
-    FilterPipe
+    FilterPipe,
+    CaptureImageComponent
 
   ],
   imports: [
@@ -41,6 +44,7 @@ import { FilterPipe } from './views/add/add-user/filterUser.pipe';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    WebcamModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
