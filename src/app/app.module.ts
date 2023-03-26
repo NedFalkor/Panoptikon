@@ -19,7 +19,7 @@ import { AddUserComponent } from './components/add/add-user/add-user.component';
 import { FilterPipe } from './components/add/add-user/filterUser.pipe';
 import { WebcamModule } from 'ngx-webcam';
 import { CaptureImageComponent } from './components/account/account-settings/capture-image/capture-image.component';
-import { VideoPLayerComponent } from './components/video-player/video-player.component';
+import { NgxWebrtcModule } from 'ngx-webrtc';
 
 
 @NgModule({
@@ -37,7 +37,6 @@ import { VideoPLayerComponent } from './components/video-player/video-player.com
     AddUserComponent,
     FilterPipe,
     CaptureImageComponent,
-    VideoPLayerComponent
 
   ],
   imports: [
@@ -47,6 +46,10 @@ import { VideoPLayerComponent } from './components/video-player/video-player.com
     FormsModule,
     HttpClientModule,
     WebcamModule,
+    NgxWebrtcModule.forRoot({
+      userIdentifier: 'id',
+      debug: false
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
