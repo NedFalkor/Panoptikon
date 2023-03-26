@@ -1,0 +1,9 @@
+#video-screen {
+    &::-webkit-media-controls-volume-slider {
+      display: none;
+    }
+  
+    &:hover::-webkit-media-controls-volume-slider {
+      display: block;
+    }
+  }
