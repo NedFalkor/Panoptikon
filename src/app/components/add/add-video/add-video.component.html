@@ -13,8 +13,13 @@
           <label for="video-name">Nom de la vidéo</label>
           <input type="text" class="form-control" id="video-name" name="video-name" required>
         </div>
+        <div class="form-group">
+          <button type="button" class="btn btn-primary" id="record-video-button">Enregistrer avec la caméra</button>
+          <video id="recorded-video" class="d-none"></video>
+        </div>
         <button type="submit" class="btn btn-primary">Ajouter</button>
       </form>
     </div>
   </div>
 </div>
+
