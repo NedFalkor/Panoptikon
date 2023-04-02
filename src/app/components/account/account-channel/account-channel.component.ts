@@ -9,8 +9,8 @@ export class AccountChannelComponent implements OnInit {
 
   @ViewChild('headerTemplate', { static: true }) headerTemplate: TemplateRef<any>;
 
-  @Input() leftButton!: TemplateRef<any>;
-  @Input() rightButton!: TemplateRef<any>;
+  @Input() leftButton!: string;
+  @Input() rightButton!: string;
 
   videos: any;
 
@@ -27,6 +27,9 @@ export class AccountChannelComponent implements OnInit {
     `;
     this.rightButton = `
       <a class="button is-outlined is-link is-focused is-hovered has-text-white my-1 mx-2 p-1" routerLink="/settings">
+        <span class="icon">
+          <i class="fas fa-cog"></i>
+        </span>
         Paramètres
       </a>
     `;
