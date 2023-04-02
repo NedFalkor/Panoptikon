@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-channel.component.scss']
 })
 export class AccountChannelComponent implements OnInit {
+  
+videos: any;
 
   constructor() { }
 

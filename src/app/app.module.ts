@@ -18,8 +18,7 @@ import { SubscriptionComponent } from './components/subscription/subscription.co
 import { AddUserComponent } from './components/add/add-user/add-user.component';
 import { FilterPipe } from './components/add/add-user/filterUser.pipe';
 import { WebcamModule } from 'ngx-webcam';
-import { CaptureImageComponent } from './components/account/account-settings/capture-image/capture-image.component';
-import { VideoPLayerComponent } from './components/video-player/video-player.component';
+import { CaptureImageComponent } from './components/capture-image/capture-image.component';
 
 
 @NgModule({
@@ -37,7 +36,6 @@ import { VideoPLayerComponent } from './components/video-player/video-player.com
     AddUserComponent,
     FilterPipe,
     CaptureImageComponent,
-    VideoPLayerComponent
 
   ],
   imports: [
