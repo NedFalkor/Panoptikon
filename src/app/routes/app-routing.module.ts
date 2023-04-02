@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AccountSettingsComponent } from '../components/account/account-settings/account-settings.component';
 import { MainMenuComponent } from '../components/main-menu/main-menu.component';
 import { SearchPageComponent } from '../components/search/search-page/search-page.component';
-import { AddUserComponent } from '../components/add/add-user/add-user.component';
+import { AddUserComponent } from '../components/add-user/add-user.component';
 import { RegisterComponent } from '../components/register/register.component';
 import { SubscriptionComponent } from '../components/subscription/subscription.component';
 
