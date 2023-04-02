@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
-
-
+import { CaptureImageComponent } from './account-settings/capture-image/capture-image.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CaptureImageComponent,
+  ],
   imports: [
     CommonModule,
   ]
