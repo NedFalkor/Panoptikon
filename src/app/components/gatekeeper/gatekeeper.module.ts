@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SubscriptionComponent } from './subscription/subscription.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    RegisterComponent,
+    SubscriptionComponent
+  ],
   imports: [
     CommonModule
   ]

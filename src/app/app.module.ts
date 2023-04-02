@@ -6,21 +6,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './routes/app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RegisterComponent } from './components/gatekeeper/register/register.component';
-import { SubscriptionComponent } from './components/gatekeeper/subscription/subscription.component';
-import { WebcamModule } from 'ngx-webcam';
 import { AccountModule } from './components/account/account.module';
 import { AddModule } from './components/add/add.module';
 import { MainMenuModule } from './components/main-menu/main-menu.module';
-
+import { GatekeeperModule } from './components/gatekeeper/gatekeeper.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
-    SubscriptionComponent,
   ],
   imports: [
+    GatekeeperModule,
     MainMenuModule,
     AccountModule,
     AddModule,
@@ -30,7 +26,6 @@ import { MainMenuModule } from './components/main-menu/main-menu.module';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    WebcamModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
