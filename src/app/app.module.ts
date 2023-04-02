@@ -10,7 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { AccountChannelComponent } from './components/account/account-channel/account-channel.component';
-import { SearchPageComponent } from './components/search/search-page/search-page.component';
+import { SearchPageComponent } from './components/search-page/search-page.component';
 import { AddVideoComponent } from './components/add-video/add-video.component';
 import { VideoViewComponent } from './components/video-view/video-view.component';
 import { RegisterComponent } from './components/register/register.component';
