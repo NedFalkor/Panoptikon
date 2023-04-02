@@ -7,7 +7,6 @@ import { Component, OnInit, ViewChild, TemplateRef, Input } from '@angular/core'
 })
 export class AccountChannelComponent implements OnInit {
 
-  @ViewChild('headerTemplate', { static: true }) headerTemplate: TemplateRef<any>;
 
   @Input() leftButton!: string;
   @Input() rightButton!: string;
