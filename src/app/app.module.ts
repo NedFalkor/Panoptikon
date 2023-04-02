@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './components/gatekeeper/register/register.component';
 import { SubscriptionComponent } from './components/gatekeeper/subscription/subscription.component';
-import { FilterPipe } from './components/add/add-user/filterUser.pipe';
 import { WebcamModule } from 'ngx-webcam';
 import { AccountModule } from './components/account/account.module';
 import { AddModule } from './components/add/add.module';
@@ -20,7 +19,6 @@ import { MainMenuModule } from './components/main-menu/main-menu.module';
     AppComponent,
     RegisterComponent,
     SubscriptionComponent,
-    FilterPipe,
   ],
   imports: [
     MainMenuModule,
