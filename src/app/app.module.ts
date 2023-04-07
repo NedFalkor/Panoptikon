@@ -24,8 +24,6 @@ import { MainMenuModule } from './components/main-menu/main-menu.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
     AccountChannelComponent,
     SearchPageComponent,
     AddVideoComponent,
