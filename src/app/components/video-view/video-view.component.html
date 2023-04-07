@@ -3,4 +3,16 @@
 		<h3>Now playing {{queryParams.video}}</h3>
 	</header>
 	<video #videoScreen width="720px" height="480px" [src]="videoSrc" controls></video>
+	<button>Aimer la video</button>
+	<div>
+		<textarea placeholder="Add a comment"></textarea>
+		<button>Envoyer Commentaire</button>
+		<button>Aimer le commentaire</button>
+		<div>
+			<h4>Commentaires</h4>
+			<ul>
+				<li *ngFor="let comment of comments">{{ comment.text }}</li>
+			</ul>
+		</div>
+	</div>
 </div>

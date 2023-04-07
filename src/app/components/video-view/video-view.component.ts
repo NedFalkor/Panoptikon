@@ -11,6 +11,8 @@ import { Subscription } from 'rxjs';
 
 export class VideoViewComponent implements OnInit, OnDestroy {
 
+  comments: any[] | undefined;
+
   queryParams: any = {};
 
   videoSrc: string = '';
