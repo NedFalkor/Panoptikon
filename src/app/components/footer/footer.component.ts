@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  leftButton: any;
+  rightButton: any;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

@@ -1,32 +1,29 @@
-<div class="has-background-dark">
-    <footer id="footer" class="has-background-dark text-center text-lg-start">
-        <nav id="header" class="navbar is-dark text-center p-3" role="navigation" aria-label="main navigation">
-        <!-- Copyright -->
-        <div class="navbar-brand">
-            <div class="navbar-item">
-                <div class="buttons">
-                    <a class="button is-outlined is-success is-focused is-hovered has-text-black my-1 mx-2 p-1">
-                        Ajouter un utilisateur
-                    </a>
+<ng-template #footerTemplate>
+    <div class="has-background-dark">
+        <footer id="footer" class="has-background-dark text-center text-lg-start">
+            <nav id="header" class="navbar is-dark text-center p-3" role="navigation" aria-label="main navigation">
+                <!-- Copyright -->
+                <div class="navbar-brand">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            {{leftButton}}
+                        </div>
+                    </div>
+                    <div class="title text-center">
+                    </div>
                 </div>
-            </div>
-            <div class="title text-center">
-            </div>
-        </div>
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-            </div>
-        </div>
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                    <a class="button is-outlined is-danger is-focused is-hovered has-text-white my-1 mx-2 p-1">
-                        Se déconnecter
-                    </a>
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
+                    </div>
                 </div>
-            </div>
-        </div>
-        <!-- Copyright -->
-    </nav>
-    </footer>
-</div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            {{rightButton}}
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </footer>
+    </div>
+</ng-template>
