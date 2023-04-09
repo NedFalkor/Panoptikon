@@ -9,9 +9,6 @@ import { ActivatedRoute } from '@angular/router';
 
 export class AddVideoComponent {
 
-<<<<<<< HEAD
-
-=======
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -21,5 +18,4 @@ export class AddVideoComponent {
   ngAfterViewInit(): void {
 
   }
->>>>>>> 13-header-page
 }
