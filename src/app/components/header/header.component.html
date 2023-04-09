@@ -1,10 +1,14 @@
 <ng-template #headerTemplate>
+
   <header>
     <nav id="header" class="navbar is-dark text-center p-3" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <div class="navbar-item">
           <div class="buttons">
-            {{leftButton}}
+            <button class="button is-{{ leftButton.color }}" [routerLink]="[leftButton.route]">
+              <i class="{{ leftButton.icon }}"></i>
+              {{ leftButton.label }}
+            </button>
           </div>
           <div id="logo" class="title has-text-centered">
             <p class="my-1 mx-1 p-1">PANOPTIKON</p>
@@ -18,7 +22,10 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            {{rightButton}}
+            <button class="button is-{{ rightButton.color }}" [routerLink]="[rightButton.route]">
+              <i class="{{ rightButton.icon }}"></i>
+              {{ rightButton.label }}
+            </button>
           </div>
         </div>
       </div>
