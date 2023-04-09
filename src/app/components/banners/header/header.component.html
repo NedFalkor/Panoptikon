@@ -1,10 +1,21 @@
 <ng-template #headerTemplate>
+<<<<<<< HEAD:src/app/components/banners/header/header.component.html
+=======
+
+>>>>>>> 13-header-page:src/app/components/header/header.component.html
   <header>
     <nav id="header" class="navbar is-dark text-center p-3" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <div class="navbar-item">
           <div class="buttons">
+<<<<<<< HEAD:src/app/components/banners/header/header.component.html
             {{leftButton}}
+=======
+            <button class="button is-{{ leftButton.color }}" [routerLink]="[leftButton.route]">
+              <i class="{{ leftButton.icon }}"></i>
+              {{ leftButton.label }}
+            </button>
+>>>>>>> 13-header-page:src/app/components/header/header.component.html
           </div>
           <div id="logo" class="title has-text-centered">
             <p class="my-1 mx-1 p-1">PANOPTIKON</p>
@@ -18,11 +29,22 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
+<<<<<<< HEAD:src/app/components/banners/header/header.component.html
             {{rightButton}}
+=======
+            <button class="button is-{{ rightButton.color }}" [routerLink]="[rightButton.route]">
+              <i class="{{ rightButton.icon }}"></i>
+              {{ rightButton.label }}
+            </button>
+>>>>>>> 13-header-page:src/app/components/header/header.component.html
           </div>
         </div>
       </div>
     </nav>
   </header>
+<<<<<<< HEAD:src/app/components/banners/header/header.component.html
 </ng-template>
 
+=======
+</ng-template>
+>>>>>>> 13-header-page:src/app/components/header/header.component.html
