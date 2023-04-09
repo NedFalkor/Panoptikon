@@ -10,6 +10,7 @@ import { WebcamModule } from 'ngx-webcam';
   ],
   imports: [
     CommonModule,
+    WebcamModule
   ]
 })
 export class AccountModule { }
