@@ -4,17 +4,16 @@
       <h2>Ajouter un utilisateur</h2>
     </div>
     <div class="card-body">
-      <form>
-        <div class="form-group">
-          <label for="input-name">Nom d'utilisateur: </label>
-          <input type="text" class="form-control" id="input-name" name="name" required>
+      <input type="text" class="form-control" id="search-text" aria-describedby="search-text" 
+        placeholder="Rechercher un utilisateur" autofocus 
+        [(ngModel)]="searchText" (keyup)="searchUsers()">      
+      <div class="search-results">
+        <div class="user" *ngFor="let user of matchingUsers">
+          <div class="profile-picture" [style.background-image]="'url(' + user.profilePicture + ')'"></div>
+          <div class="username">{{user.username}}</div>
         </div>
-        <div class="form-group">
-          <label for="input-email">Adresse email: </label>
-          <input type="email" class="form-control" id="input-email" name="email" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Ajouter</button>
-      </form>
+        <div *ngIf="matchingUsers.length == 0">Aucun utilisateur trouvé</div>
+      </div>
     </div>
   </div>
   <div class="card">
@@ -22,9 +21,9 @@
       <h2>Résultats de recherche</h2>
     </div>
     <div class="card-body">
-      <input type="text" class="form-control" id="search-text" aria-describedby="search-text" placeholder="Rechercher un utilisateur" autofocus>
-      <div class="search-results"></div>
+      <input type="text" class="form-control" id="search-text" aria-describedby="search-text" 
+      placeholder="Rechercher un utilisateur" autofocus 
+      [(ngModel)]="searchText" (keyup)="searchUsers()">      <div class="search-results"></div>
     </div>
   </div>
 </div>
-
