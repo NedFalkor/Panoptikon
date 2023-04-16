@@ -1,3 +1,5 @@
+import { Picture } from "./picture";
+
 export interface User {
     profilePicture: Picture;
     id?: number;
