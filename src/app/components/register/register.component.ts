@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/interfaces/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
   acceptedTerms: boolean;
 
-  constructor() {
+  constructor(private userService: UserService) {
     this.acceptedTerms = false;
    }
 
@@ -28,7 +29,16 @@ export class RegisterComponent implements OnInit {
     console.log('Password: ', this.newUser.password);
     console.log('Email: ', this.newUser.email);
     console.log('Accepted terms: ', this.acceptedTerms);
+
+    this.userService.createUser(this.newUser)
+      .subscribe(
+        (user) => {
+          console.log('User created:', user);
+        },
+        (error) => {
+          console.error('Error creating user:', error);
+        }
+      );
   }
 
 }
-
