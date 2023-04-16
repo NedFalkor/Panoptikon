@@ -3,11 +3,16 @@
       <div class="form-group">
         <label for="search-text">Rechercher une vidéo</label>
         <input type="name" class="form-control" id="search-text" aria-describedby="search-text" 
-           placeholder="Rechercher une vidéo" 
-          autofocus>
+        placeholder="Rechercher une vidéo" 
+        autofocus
+        (input)="onSearch($event.target.value)">
       </div>
     </div>
     <div class="video-list">
-      
+      <div *ngFor="let video of filteredVideos">
+        <img src="{{video.thumbnailUrl}}" alt="{{video.title}}">
+        <p>{{video.title}}</p>
+      </div>
     </div>
+    
   </div>
