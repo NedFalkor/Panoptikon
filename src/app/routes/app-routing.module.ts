@@ -11,7 +11,6 @@ import { SubscriptionComponent } from '../components/subscription/subscription.c
 import { SearchPageComponent } from '../components/search/search-page/search-page.component';
 import { VideoViewComponent } from '../components/video-view/video-view.component';
 
-
 const routes: Routes = [
   { path: 'parametres', component: AccountSettingsComponent },
   { path: 'chaine', component: AccountChannelComponent},
