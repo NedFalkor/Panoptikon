@@ -1,6 +1,20 @@
-<div id="video-list">
-    <header>
-        <h3>Vos videos</h3>
-    </header>
-    <ul id="your-videos">
-    </ul>
+<div class="content" role="main">
+    <div class="card">
+      <div class="card-header">
+        <h2>Mes vidéos</h2>
+      </div>
+      <div class="card-body">
+        <ul class="video-list">
+          <li *ngFor="let video of videos">
+            <div class="thumbnail">
+              <img src="{{video.thumbnailUrl}}" alt="{{video.title}}">
+            </div>
+            <div class="details">
+              <h3>{{video.title}}</h3>
+              <p>{{video.description}}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

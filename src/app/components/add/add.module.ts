@@ -8,5 +8,6 @@ import { AddVideoComponent } from './add-video/add-video.component';
   imports: [CommonModule, NgxWebrtcModule],
   providers: [],
   exports: [AddVideoComponent]
+
 })
 export class AddVideoModule {}
