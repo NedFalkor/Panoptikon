@@ -1,5 +1,6 @@
 import { Component, ViewChild, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { VideoService } from 'src/app/services/video.service';
 
 @Component({
   selector: 'app-add-video',
@@ -19,6 +20,7 @@ export class AddVideoComponent {
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private videoService: VideoService
   ) { }
 
   ngOnInit() {
@@ -29,6 +31,7 @@ export class AddVideoComponent {
       .then((stream: MediaStream) => {
         const videoElement = document.getElementById('video-preview') as HTMLVideoElement;
         videoElement.srcObject = stream;
+        videoElement.play();
         this.mediaRecorder = new MediaRecorder(stream);
         this.mediaRecorder.ondataavailable = event => {
           this.recordedChunks.push(event.data);
@@ -37,6 +40,15 @@ export class AddVideoComponent {
           const blob = new Blob(this.recordedChunks, { type: 'video/mp4' });
           const videoFile = new File([blob], 'webcam-video.mp4');
           console.log('Video file:', videoFile);
+
+          const formData = new FormData();
+          formData.append('file', videoFile);
+          formData.append('name', 'webcam-video');
+          formData.append('description', 'Vidéo capturée dans le PanOptikon');
+          this.videoService.uploadVideo(videoFile, 'webcam-video', 'Vidéo capturée dans le PanOptikon')
+            .subscribe(result => {
+              console.log(result);
+            });
         };
       })
       .catch((error: any) => {
@@ -47,6 +59,7 @@ export class AddVideoComponent {
       this.queryParams = params;
     });
   }
+
 
   startRecording(): void {
     this.recordedChunks = [];
@@ -77,5 +90,5 @@ export class AddVideoComponent {
       const file = fileInput.files![0];
     }
   }
-    
+
 }

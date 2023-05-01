@@ -1,20 +1,42 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/interfaces/user';
+import { UserService } from 'src/app/services/user.service';
 
-@Injectable({
-  providedIn: 'root'
+@Component({
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class AuthService {
+export class RegisterComponent implements OnInit {
 
-  private baseUrl = 'http://localhost:3000';
+  newUser: User = {
+    username: '',
+    password: ''
+  };
 
-  constructor(private http: HttpClient) { }
+  acceptedTerms: boolean;
 
-  register(user: User): Observable<User> {
-    const url = `${this.baseUrl}/users`;
-    return this.http.post<User>(url, user);
+  constructor(private userService: UserService) {
+    this.acceptedTerms = false;
+   }
+
+  ngOnInit(): void {
+  }
+
+  onSubmit() {
+    console.log('Username: ', this.newUser.username);
+    console.log('Password: ', this.newUser.password);
+    console.log('Accepted terms: ', this.acceptedTerms);
+
+    this.userService.createUser(this.newUser)
+      .subscribe(
+        (user) => {
+          console.log('User created:', user);
+        },
+        (error) => {
+          console.error('Error creating user:', error);
+        }
+      );
   }
 
 }

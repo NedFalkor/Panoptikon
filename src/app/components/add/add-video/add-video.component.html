@@ -16,10 +16,17 @@
         <div class="form-group">
           <button type="button" class="btn btn-primary" id="record-video-button">Enregistrer avec la caméra</button>
           <video id="recorded-video" class="d-none"></video>
+          <div id="webcam-window" class="d-none">
+            <video id="video-preview" autoplay></video>
+            <div id="webcam-controls">
+              <span id="record-timer"></span>
+              <button *ngIf="!mediaRecorder || mediaRecorder.state === 'inactive'" type="button" class="btn btn-primary" id="start-recording">Démarrer</button>
+              <button *ngIf="mediaRecorder && mediaRecorder.state === 'recording'" type="button" class="btn btn-primary d-none" id="stop-recording">Arrêter</button>
+            </div>
+          </div>
         </div>
         <button type="submit" class="btn btn-primary">Ajouter</button>
       </form>
     </div>
   </div>
 </div>
-
