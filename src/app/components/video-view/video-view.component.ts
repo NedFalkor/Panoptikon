@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, OnInit, OnDestroy, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -8,7 +8,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./video-view.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
 export class VideoViewComponent implements OnInit, OnDestroy {
 
   comments: any[] | undefined;
@@ -17,8 +16,12 @@ export class VideoViewComponent implements OnInit, OnDestroy {
 
   videoSrc: string = '';
 
+  videoUrls: string[] = [];
+  currentVideoIndex = 0;
+
   @ViewChild('videoScreen', { static: true }) videoScreen!: ElementRef<HTMLVideoElement>;
   @ViewChild('videoDiv', { static: true }) videoDiv!: ElementRef<HTMLDivElement>;
+  @ViewChild('videoPlayer', { static: true }) videoPlayer!: ElementRef<HTMLVideoElement>;
 
   private subscription!: Subscription;
 
@@ -43,5 +46,28 @@ export class VideoViewComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-}
+  playPause() {
+    if (this.videoPlayer.nativeElement.paused) {
+      this.videoPlayer.nativeElement.play();
+    } else {
+      this.videoPlayer.nativeElement.pause();
+    }
+  }
 
+  previous() {
+    if (this.currentVideoIndex > 0) {
+      this.currentVideoIndex--;
+      this.videoSrc = this.videoUrls[this.currentVideoIndex];
+      this.videoScreen.nativeElement.src = this.videoSrc;
+    }
+  }
+
+  next() {
+    if (this.currentVideoIndex < this.videoUrls.length - 1) {
+      this.currentVideoIndex++;
+      this.videoSrc = this.videoUrls[this.currentVideoIndex];
+      this.videoScreen.nativeElement.src = this.videoSrc;
+    }
+  }
+
+}
