@@ -20,11 +20,13 @@ import { FooterComponent } from './components/banners/footer/footer.component';
 import { HeaderComponent } from './components/banners/header/header.component';
 import { RegisterComponent } from './components/gatekeeper/register/register.component';
 import { SubscriptionComponent } from './components/gatekeeper/subscription/subscription.component';
+import { AddVideoComponent } from './components/add/add-video/add-video.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
+        AddVideoComponent,
         HeaderComponent,
         FooterComponent,
         MainMenuComponent,
@@ -40,6 +42,7 @@ import { SubscriptionComponent } from './components/gatekeeper/subscription/subs
     providers: [],
     bootstrap: [AppComponent],
     imports: [
+      AddVideoModule,
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
@@ -47,7 +50,6 @@ import { SubscriptionComponent } from './components/gatekeeper/subscription/subs
         HttpClientModule,
         WebcamModule,
         NgxWebrtcModule,
-        AddVideoModule
     ]
 })
 export class AppModule { }
