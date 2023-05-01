@@ -11,7 +11,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { AccountChannelComponent } from './components/account/account-channel/account-channel.component';
 import { SearchPageComponent } from './components/search/search-page/search-page.component';
-import { VideoViewComponent } from './components/video-view/video-view.component';
 import { SubscriptionComponent } from './components/subscription/subscription.component';
 import { AddUserComponent } from './components/add/add-user/add-user.component';
 import { FilterPipe } from './components/add/add-user/filterUser.pipe';
@@ -30,7 +29,6 @@ import { RegisterComponent } from './components/register/register.component';
         MainMenuComponent,
         AccountChannelComponent,
         SearchPageComponent,
-        VideoViewComponent,
         RegisterComponent,
         SubscriptionComponent,
         AddUserComponent,
