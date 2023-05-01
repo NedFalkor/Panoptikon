@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { NgxWebrtcModule } from 'ngx-webrtc';
+import { AddVideoComponent } from './add-video/add-video.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [AddVideoComponent],
+  imports: [CommonModule, NgxWebrtcModule],
+  providers: [],
+  exports: [AddVideoComponent]
 })
-export class AddModule { }
+export class AddVideoModule {}
