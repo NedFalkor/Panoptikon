@@ -36,4 +36,3 @@ export class CaptureImageComponent implements OnInit {
     return this.nextWebcam.asObservable();
   }
 }
-
