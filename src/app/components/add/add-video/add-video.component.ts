@@ -1,6 +1,5 @@
 import { Component, ViewChild, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NgxWebrtcUser } from 'ngx-webrtc';
 
 @Component({
   selector: 'app-add-video',
@@ -16,10 +15,10 @@ export class AddVideoComponent {
   recordedChunks: Blob[] = [];
 
   @ViewChild('videoForm') form!: HTMLFormElement;
+  ngxWebRTCUser: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private ngxWebRTCUser: NgxWebrtcUser 
   ) { }
 
   ngOnInit() {
@@ -40,7 +39,7 @@ export class AddVideoComponent {
           console.log('Video file:', videoFile);
         };
       })
-      .catch(error => {
+      .catch((error: any) => {
         console.error(error);
       });
 
@@ -73,11 +72,10 @@ export class AddVideoComponent {
           window.location.reload();
         });
     });
-    const fileInput = this.form.querySelector('input[type="file"]');
+    const fileInput = this.form.querySelector('input[type="file"]') as HTMLInputElement;
     if (fileInput !== null) {
       const file = fileInput.files![0];
-      const fileURL = URL.createObjectURL(file);
     }
   }
+    
 }
-
