@@ -1,5 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, ViewChild, OnDestroy } from '@angular/core';
 import { VideoService } from 'src/app/services/video.service';
 
 @Component({
@@ -7,144 +6,115 @@ import { VideoService } from 'src/app/services/video.service';
   templateUrl: './add-video.component.html',
   styleUrls: ['./add-video.component.scss']
 })
-export class AddVideoComponent {
+export class AddVideoComponent implements OnDestroy {
 
-  queryParams: any;
-  timerInterval: any;
+  @ViewChild('videoPreview') videoPreview!: HTMLVideoElement;
+  @ViewChild('startRecording') startRecordingButton!: HTMLButtonElement;
+  @ViewChild('recordTimer') recordTimer!: HTMLSpanElement;
+  @ViewChild('messageElement') messageElement!: HTMLDivElement;
 
-  ngxWebRTCClient: any;
   mediaRecorder!: MediaRecorder;
   recordedChunks: Blob[] = [];
+  isRecording = false;
+  isTimerRunning = false;
+  remainingTime = 30;
+  showWebcamFlag = false;
+  selectedFile!: File;
 
-  @ViewChild('videoForm') form!: HTMLFormElement;
-
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private videoService: VideoService
-  ) { }
+  constructor(private videoService: VideoService) { }
 
   ngOnInit() {
-    this.ngxWebRTCClient = this.createClient({
-      debug: false
-    });
-    if (this.ngxWebRTCClient) {
-      this.ngxWebRTCClient.getUserMedia({ video: true })
-        .then((stream: MediaStream) => {
-          const videoElement = document.getElementById('video-preview') as HTMLVideoElement;
-          videoElement.srcObject = stream;
-          videoElement.play();
-          this.mediaRecorder = new MediaRecorder(stream);
-          this.mediaRecorder.ondataavailable = event => {
-            this.recordedChunks.push(event.data);
-          };
-          this.mediaRecorder.onstop = () => {
-            const blob = new Blob(this.recordedChunks, { type: 'video/mp4' });
-            const videoFile = new File([blob], 'webcam-video.mp4');
-            console.log('Video file:', videoFile);
-
-            const formData = new FormData();
-            formData.append('file', videoFile);
-            formData.append('name', 'webcam-video');
-            formData.append('description', 'Vidéo capturée dans le PanOptikon');
-            this.videoService.uploadVideo(videoFile, 'webcam-video', 'Vidéo capturée dans le PanOptikon')
-              .subscribe(result => {
-                console.log(result);
-              });
-          };
-        })
-        .catch((error: any) => {
-          console.error(error);
-        });
-    }
-
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.queryParams = params;
-    });
-
-    this.startWebcam();
-  }
-
-  createClient(options: any): any {
-    // replace with appropriate code
-  }
-
-  startWebcam() {
-    const videoPreview = document.getElementById('video-preview') as HTMLVideoElement;
-    const startRecordingButton = document.getElementById('start-recording') as HTMLButtonElement;
-    const stopRecordingButton = document.getElementById('stop-recording') as HTMLButtonElement;
-    const webcamWindow = document.getElementById('webcam-window') as HTMLElement;
-
-    if (webcamWindow !== null) {
-      webcamWindow.classList.remove('d-none');
-    }
-
-    videoPreview.setAttribute('autoplay', 'true');
-    navigator.mediaDevices.getUserMedia({ video: true })
+    this.videoPreview.setAttribute('autoplay', 'true');
+    navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       .then(stream => {
-        videoPreview.srcObject = stream;
+        this.videoPreview.srcObject = stream;
+        this.mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/webm;codecs=h264' });
+        this.mediaRecorder.ondataavailable = event => {
+          this.recordedChunks.push(event.data);
+        };
+        this.mediaRecorder.onstop = () => {
+          const blob = new Blob(this.recordedChunks, { type: 'video/webm' });
+          const videoFile = new File([blob], 'recorded-video.webm');
+          console.log('Video file:', videoFile);
+          this.videoService.uploadVideo(videoFile, 'recorded-video', 'My recorded video')
+            .subscribe(result => {
+              console.log(result);
+            });
+        };
       })
       .catch(error => {
         console.error(error);
       });
-
-
-    startRecordingButton.addEventListener('click', () => {
-      this.startRecording();
-      startRecordingButton.classList.add('d-none');
-      stopRecordingButton.classList.remove('d-none');
-    });
-
-    const recordTimer = document.getElementById('record-timer') as HTMLSpanElement;
-    let seconds = 0;
-    this.timerInterval = setInterval(() => {
-      seconds++;
-      recordTimer.innerText = seconds.toString();
-    }, 1000);
-
-
-    stopRecordingButton.addEventListener('click', () => {
-      this.stopRecording();
-      stopRecordingButton.classList.add('d-none');
-      startRecordingButton.classList.remove('d-none');
-    });
   }
 
-  startRecording() {
-    this.recordedChunks = [];
-    this.mediaRecorder.start();
-  }
-
-  stopRecording() {
-
-    this.mediaRecorder.stop();
-
-    const videoPreview = document.getElementById('video-preview') as HTMLVideoElement;
-    const stream = videoPreview.srcObject as MediaStream;
-    const tracks = stream.getTracks();
-    tracks.forEach(track => track.stop());
-
-    this.recordedChunks = [];
-  }
-
-  ngAfterViewInit(): void {
-    this.form.addEventListener('submit', (event) => {
-      event.preventDefault();
-
-      let data = new FormData(this.form);
-
-      fetch('http://localhost:8080/video', {
-        method: 'POST',
-        body: data
-      })
-        .then(result => result.text())
-        .then(_ => {
-          window.location.reload();
-        });
-    });
-    const fileInput = this.form.querySelector('input[type="file"]') as HTMLInputElement;
-    if (fileInput !== null) {
-      const file = fileInput.files![0];
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0];
     }
   }
 
+  showWebcam() {
+    this.showWebcamFlag = true;
+    navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+      .then(stream => {
+        this.videoPreview.srcObject = stream;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    if (this.startRecordingButton) {
+      this.startRecordingButton.classList.remove('d-none');
+    }
+    document.querySelector('#webcam-window')?.classList.remove('d-none');
+  }
+
+
+  startRecording() {
+    this.isRecording = true;
+    this.isTimerRunning = true;
+    this.recordedChunks = [];
+    this.mediaRecorder.start();
+    this.startRecordingButton.classList.add('d-none');
+    this.recordTimer.classList.remove('d-none');
+    this.updateTimer();
+  }
+
+  stopRecording() {
+    if (this.isRecording) {
+      this.isRecording = false;
+      this.isTimerRunning = false;
+      this.mediaRecorder.stop();
+      const stream = this.videoPreview.srcObject as MediaStream;
+      const tracks = stream.getTracks();
+      tracks.forEach(track => track.stop());
+
+      this.startRecordingButton.classList.remove('d-none');
+      this.recordTimer.classList.add('d-none');
+      this.messageElement.innerText = 'Video terminée';
+      this.remainingTime = 30;
+    }
+  }
+
+  updateTimer() {
+    setTimeout(() => {
+      if (this.isTimerRunning) {
+        this.remainingTime--;
+        if (this.remainingTime <= 0) {
+          this.stopRecording();
+        } else {
+          this.updateTimer();
+        }
+      }
+    }, 1000);
+  }
+
+  ngOnDestroy() {
+    if (this.mediaRecorder) {
+      this.mediaRecorder.stop();
+    }
+    const stream = this.videoPreview.srcObject as MediaStream;
+    const tracks = stream.getTracks();
+    tracks.forEach(track => track.stop());
+  }
 }

@@ -16,7 +16,6 @@ import { AddUserComponent } from './components/add/add-user/add-user.component';
 import { FilterPipe } from './components/add/add-user/filterUser.pipe';
 import { WebcamModule } from 'ngx-webcam';
 import { CaptureImageComponent } from './components/account/account-settings/capture-image/capture-image.component';
-import { NgxWebrtcModule } from 'ngx-webrtc';
 import { AddVideoModule } from "./components/add/add.module";
 import { RegisterComponent } from './components/register/register.component';
 
@@ -24,16 +23,6 @@ import { RegisterComponent } from './components/register/register.component';
 @NgModule({
     declarations: [
         AppComponent,
-        HeaderComponent,
-        FooterComponent,
-        MainMenuComponent,
-        AccountChannelComponent,
-        SearchPageComponent,
-        RegisterComponent,
-        SubscriptionComponent,
-        AddUserComponent,
-        FilterPipe,
-        CaptureImageComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -44,7 +33,6 @@ import { RegisterComponent } from './components/register/register.component';
         FormsModule,
         HttpClientModule,
         WebcamModule,
-        NgxWebrtcModule,
         AddVideoModule
     ]
 })

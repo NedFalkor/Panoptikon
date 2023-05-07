@@ -21,11 +21,12 @@
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
     "@apizee/apirtc": "^4.6.5",
+    "@types/dom-mediacapture-record": "^1.0.16",
     "bulma": "^0.9.4",
     "ngx-webcam": "^0.4.1",
     "ngx-webrtc": "^0.2.3",
     "rxjs": "~7.5.0",
-    "simplewebrtc": "^3.0.2",
+    "simplewebrtc": "^1.19.1",
     "tslib": "^2.3.0",
     "webrtc": "^1.14.1",
     "zone.js": "~0.11.4"
