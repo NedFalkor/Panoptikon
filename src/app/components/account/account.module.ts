@@ -6,7 +6,6 @@ import { WebcamModule } from 'ngx-webcam';
 
 @NgModule({
   declarations: [
-    CaptureImageComponent,
   ],
   imports: [
     CommonModule,

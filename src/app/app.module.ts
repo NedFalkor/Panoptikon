@@ -12,6 +12,7 @@ import { WebcamModule } from 'ngx-webcam';
 import { AccountModule } from './components/account/account.module';
 import { AddModule } from './components/add/add.module';
 import { MainMenuModule } from './components/main-menu/main-menu.module';
+import { CaptureImageComponent } from './components/account/capture-image/capture-image.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { MainMenuModule } from './components/main-menu/main-menu.module';
     AppComponent,
     RegisterComponent,
     SubscriptionComponent,
+    CaptureImageComponent
   ],
   imports: [
     MainMenuModule,
