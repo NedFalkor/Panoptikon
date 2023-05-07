@@ -103,10 +103,16 @@ export class AddVideoComponent implements OnDestroy {
         if (this.remainingTime <= 0) {
           this.stopRecording();
         } else {
+          const hours = Math.floor(this.remainingTime / 3600);
+          const minutes = Math.floor((this.remainingTime % 3600) / 60);
+          const seconds = this.remainingTime % 60;
+          const milliseconds = (this.remainingTime % 1) * 1000;
+          const timerString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}:${milliseconds.toString().padStart(3, '0')}`;
+          this.recordTimer.innerText = timerString;
           this.updateTimer();
         }
       }
-    }, 1000);
+    }, 1);
   }
 
   ngOnDestroy() {
