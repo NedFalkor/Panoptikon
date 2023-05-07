@@ -1,9 +1,17 @@
-<div id="video-player" *ngIf="queryParams.video">
+<div id="video-player">
 	<header>
 		<h3>Now playing {{queryParams.video}}</h3>
 	</header>
 	<video #videoScreen width="720px" height="480px" [src]="videoSrc" controls></video>
-	<button>Aimer la video</button>
+	<div class="button-container">
+		<button (click)="previous()">Previous</button>
+		<button (click)="playPause()">Play/Pause</button>
+		<button (click)="next()">Next</button>
+	</div>
+	<div class="button-container">
+				<button (click)="like()">Like</button>
+				<button (click)="dislike()">Dislike</button>
+	</div>
 	<div>
 		<textarea placeholder="Add a comment"></textarea>
 		<button>Envoyer Commentaire</button>
@@ -15,9 +23,4 @@
 			</ul>
 		</div>
 	</div>
-	<div>
-		<button (click)="playPause()">Play/Pause</button>
-		<button (click)="previous()">Previous</button>
-		<button (click)="next()">Next</button>
-	  </div>
 </div>

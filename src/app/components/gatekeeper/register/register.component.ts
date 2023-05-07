@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/interfaces/user';
 
-@Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class RegisterComponent implements OnInit {
+export class AuthService {
 
-  constructor() { }
+  private baseUrl = 'http://localhost:3000';
 
-  ngOnInit(): void {
+  constructor(private http: HttpClient) { }
+
+  register(user: User): Observable<User> {
+    const url = `${this.baseUrl}/users`;
+    return this.http.post<User>(url, user);
   }
 
 }

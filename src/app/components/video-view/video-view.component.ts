@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, OnDestroy, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { LikeCommentService } from 'src/app/services/like-comment.service';
+import { Comment } from 'src/app/models/comment.model';
 
 @Component({
   selector: 'app-video-view',
@@ -11,6 +13,8 @@ import { Subscription } from 'rxjs';
 export class VideoViewComponent implements OnInit, OnDestroy {
 
   comments: any[] | undefined;
+  numLikes: number | undefined;
+  likeCommentId: number | undefined;
 
   queryParams: any = {};
 
@@ -25,7 +29,8 @@ export class VideoViewComponent implements OnInit, OnDestroy {
 
   private subscription!: Subscription;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute,
+    private likeCommentService: LikeCommentService) { }
 
   ngOnInit(): void {
     this.subscription = this.activatedRoute.queryParams.subscribe(params => {
@@ -70,4 +75,33 @@ export class VideoViewComponent implements OnInit, OnDestroy {
     }
   }
 
+  like() {
+    this.likeCommentService.createLikeComment(new Comment(), 'username').subscribe(
+      (likeComment) => {
+        this.likeCommentService.getNumberOfLikesForComment(likeComment).subscribe(
+          (numLikes) => {
+            this.numLikes = numLikes;
+          }
+        );
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  dislike() {
+    this.likeCommentService.deleteLikeComment(this.likeCommentId).subscribe(
+      () => {
+        this.likeCommentService.getNumberOfLikesForComment(new Comment()).subscribe(
+          (numLikes) => {
+            this.numLikes = numLikes;
+          }
+        );
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 }
