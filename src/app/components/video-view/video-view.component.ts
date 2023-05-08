@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, OnDestroy, ChangeDetectionStrategy, View
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LikeCommentService } from 'src/app/services/like-comment.service';
-import { Comment } from 'src/app/models/comment.model';
+import { Comment } from 'src/app/interfaces/comment'
 
 @Component({
   selector: 'app-video-view',
@@ -12,9 +12,10 @@ import { Comment } from 'src/app/models/comment.model';
 })
 export class VideoViewComponent implements OnInit, OnDestroy {
 
-  comments: any[] | undefined;
+  comments: Comment[] | undefined;
   numLikes: number | undefined;
   likeCommentId: number | undefined;
+  username: string = ''
 
   queryParams: any = {};
 
@@ -43,6 +44,7 @@ export class VideoViewComponent implements OnInit, OnDestroy {
         if (nowPlaying) {
           nowPlaying.textContent = 'Now playing ' + this.queryParams.video;
         }
+        this.username = this.queryParams.username;
       }
     });
   }
@@ -50,6 +52,16 @@ export class VideoViewComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
+
+ createNewComment(username: string, text: string): Comment {
+  return {
+    username,
+    text,
+    date: new Date().toISOString(),
+    replies: [],
+    numLikes: 0
+  };
+}
 
   playPause() {
     if (this.videoPlayer.nativeElement.paused) {
@@ -75,31 +87,33 @@ export class VideoViewComponent implements OnInit, OnDestroy {
     }
   }
 
-  like() {
-    this.likeCommentService.createLikeComment(new Comment(), 'username').subscribe(
-      (likeComment) => {
-        this.likeCommentService.getNumberOfLikesForComment(likeComment).subscribe(
-          (numLikes) => {
+  like(comment: Comment) {
+    const newComment = this.createNewComment(this.username, comment.text);
+    this.likeCommentService.createLikeComment(newComment, this.username).subscribe(
+      (likeComment: any) => {
+        return this.likeCommentService.getNumberOfLikesForComment(likeComment.id as number).subscribe(
+          (numLikes: number) => {
             this.numLikes = numLikes;
           }
         );
       },
-      (error) => {
+      (error: any) => {
         console.error(error);
       }
     );
   }
 
+
   dislike() {
-    this.likeCommentService.deleteLikeComment(this.likeCommentId).subscribe(
+    this.likeCommentService.deleteLikeComment(this.likeCommentId as number).subscribe(
       () => {
-        this.likeCommentService.getNumberOfLikesForComment(new Comment()).subscribe(
-          (numLikes) => {
+        return this.likeCommentService.getNumberOfLikesForComment(this.likeCommentId as number).subscribe(
+          (numLikes: number) => {
             this.numLikes = numLikes;
           }
         );
       },
-      (error) => {
+      (error: any) => {
         console.error(error);
       }
     );
