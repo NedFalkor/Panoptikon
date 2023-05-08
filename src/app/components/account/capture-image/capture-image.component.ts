@@ -7,6 +7,7 @@ import { Observable, Subject } from 'rxjs';
   templateUrl: './capture-image.component.html',
   styleUrls: ['./capture-image.component.scss']
 })
+  
 export class CaptureImageComponent implements OnInit {
 
   private trigger: Subject<any> = new Subject();
@@ -24,8 +25,7 @@ export class CaptureImageComponent implements OnInit {
 
   public captureImg(webcamImage: WebcamImage): void {
     this.webcamImage = webcamImage;
-    this.sysImage = webcamImage!.imageAsDataUrl;
-    console.info('got webcam image', this.sysImage);
+    console.info('got webcam image', this.webcamImage.imageAsDataUrl);
   }
 
   public get invokeObservable(): Observable<any> {
@@ -35,4 +35,5 @@ export class CaptureImageComponent implements OnInit {
   public get nextWebcamObservable(): Observable<any> {
     return this.nextWebcam.asObservable();
   }
+
 }
