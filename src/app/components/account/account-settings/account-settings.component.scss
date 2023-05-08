@@ -1,0 +1,81 @@
+.content {
+    padding: 2rem;
+
+    .card {
+        border: none;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        width: 100%;
+
+        &:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            background-color: #F4F4F4;
+            border-bottom: none;
+            padding: 1rem;
+
+            h2 {
+                font-size: 2rem;
+                margin: 0;
+            }
+        }
+
+        .card-body {
+            padding: 2rem;
+
+            form {
+                display: flex;
+                flex-direction: column;
+
+                .form-group {
+                    margin-bottom: 1rem;
+
+                    label {
+                        font-weight: bold;
+                        margin-right: 1rem;
+                    }
+
+                    input[type="text"],
+                    input[type="email"],
+                    input[type="password"],
+                    input[type="file"] {
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                        padding: 0.5rem;
+                        width: 100%;
+
+                        &:focus {
+                            outline: none;
+                            box-shadow: 0 0 5px #ccc;
+                        }
+                    }
+
+                    button {
+                        background-color: #007bff;
+                        border: none;
+                        border-radius: 5px;
+                        color: #fff;
+                        cursor: pointer;
+                        font-weight: bold;
+                        padding: 0.5rem;
+                        transition: background-color 0.3s ease;
+
+                        &:hover {
+                            background-color: #0069d9;
+                        }
+                    }
+
+                    .btn-primary {
+                        margin-right: 1rem;
+                    }
+                }
+
+                .form-group:last-of-type {
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+}

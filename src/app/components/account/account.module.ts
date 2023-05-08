@@ -9,7 +9,6 @@ import { HeaderComponent } from '../header/header.component';
 
 @NgModule({
   declarations: [
-    AccountSettingsComponent,
     FooterComponent,
     HeaderComponent
   ],

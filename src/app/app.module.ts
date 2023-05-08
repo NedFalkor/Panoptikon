@@ -9,12 +9,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './components/register/register.component';
 import { SubscriptionComponent } from './components/subscription/subscription.component';
 import { WebcamModule } from 'ngx-webcam';
+import { AccountSettingsComponent } from './components/account/account-settings/account-settings.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     SubscriptionComponent,
+    AccountSettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +26,7 @@ import { WebcamModule } from 'ngx-webcam';
     FormsModule,
     HttpClientModule,
     WebcamModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
