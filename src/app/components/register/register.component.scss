@@ -1,0 +1,70 @@
+.field {
+    margin-bottom: 1rem;
+
+    .label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .control {
+        position: relative;
+
+        .input.is-large {
+            padding: 1.5rem 2.5rem 1.5rem 1rem;
+            font-size: 1.25rem;
+        }
+
+        .icon.is-left {
+            position: absolute;
+            top: 50%;
+            left: 0.75rem;
+            transform: translateY(-50%);
+            color: #ccc;
+        }
+
+        .icon.is-right {
+            position: absolute;
+            top: 50%;
+            right: 0.75rem;
+            transform: translateY(-50%);
+            color: #ccc;
+        }
+
+        .input.is-large:focus+.icon.is-right {
+            color: #3273dc;
+        }
+    }
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+
+    input[type="checkbox"] {
+        margin-right: 0.5rem;
+    }
+}
+
+.is-grouped {
+    display: flex;
+    justify-content: space-between;
+
+    .control {
+        width: 45%;
+    }
+}
+
+.already-registered {
+    margin-top: 2rem;
+    font-size: 0.875rem;
+
+    a {
+        margin-left: 0.5rem;
+        color: #3273dc;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
