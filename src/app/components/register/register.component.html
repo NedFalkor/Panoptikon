@@ -5,12 +5,14 @@
     <span class="icon is-medium is-left">
       <i class="fas fa-envelope fa-lg"></i>
     </span>
-    <span class="icon is-medium is-right">
+    <span class="icon is-medium is-right" *ngIf="newUser.email && emailPattern.test(newUser.email)">
       <i class="fas fa-check fa-lg"></i>
     </span>
   </div>
+  <p class="help is-danger" *ngIf="newUser.email && !emailPattern.test(newUser.email)">
+    L'adresse email est invalide.
+  </p>
 </div>
-
 <div class="field">
   <label class="label">Nom d'utilisateur</label>
   <div class="control has-icons-left has-icons-right">
@@ -18,12 +20,14 @@
     <span class="icon is-medium is-left">
       <i class="fas fa-user fa-lg"></i>
     </span>
-    <span class="icon is-medium is-right">
+    <span class="icon is-medium is-right" *ngIf="newUser.username && newUser.username.length >= 10">
       <i class="fas fa-check fa-lg"></i>
     </span>
   </div>
+  <p class="help is-danger" *ngIf="newUser.username && newUser.username.length < 10">
+    Le nom d'utilisateur doit contenir au moins 10 caractères.
+  </p>
 </div>
-
 <div class="field">
   <label class="label">Mot de passe</label>
   <div class="control has-icons-left has-icons-right">
@@ -31,12 +35,15 @@
     <span class="icon is-medium is-left">
       <i class="fas fa-lock fa-lg"></i>
     </span>
-    <span class="icon is-medium is-right">
+    <span class="icon is-medium is-right" *ngIf="newUser.password && passwordPattern.test(newUser.password)">
       <i class="fas fa-check fa-lg"></i>
     </span>
   </div>
+  <p class="help is-danger" *ngIf="newUser.password && !passwordPattern.test(newUser.password)">
+    Le mot de passe doit contenir au moins 8 caractères, dont une lettre majuscule, une lettre minuscule, un chiffre et
+    un caractère spécial (!@#$%^&*).
+  </p>
 </div>
-
 <div class="field">
   <div class="control">
     <label class="checkbox">
@@ -44,8 +51,10 @@
       J'accepte les termes et conditions d'utilisation
     </label>
   </div>
+  <p class="help is-danger" *ngIf="!acceptedTerms">
+    Vous devez accepter les termes et conditions d'utilisation pour continuer.
+  </p>
 </div>
-
 <div class="field is-grouped">
   <div class="control">
     <button class="button is-link" (click)="onSubmit()">Soumettre</button>

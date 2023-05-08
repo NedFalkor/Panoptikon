@@ -9,17 +9,18 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class RegisterComponent implements OnInit {
 
+  public emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  public passwordPattern = /^(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+
   newUser: User = {
     username: '',
     email: '',
     password: ''
   };
 
-  acceptedTerms: boolean;
+  acceptedTerms = false;
 
-  constructor(private userService: UserService) {
-    this.acceptedTerms = false;
-   }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
   }
@@ -31,18 +32,18 @@ export class RegisterComponent implements OnInit {
     console.log('Accepted terms: ', this.acceptedTerms);
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(this.newUser.email)) {
+    if (!emailPattern.test(this.newUser.email || '')) {
       console.error('Invalid email address');
       return;
     }
 
-    if (this.newUser.username.length < 10) {
+    if (!this.newUser.username || this.newUser.username.length < 10) {
       console.error('Username must be at least 10 characters long');
       return;
     }
 
     const passwordPattern = /^(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-    if (!passwordPattern.test(this.newUser.password)) {
+    if (!passwordPattern.test(this.newUser.password || '')) {
       console.error('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character (!@#$%^&*)');
       return;
     }
@@ -57,5 +58,4 @@ export class RegisterComponent implements OnInit {
         }
       );
   }
-
 }
