@@ -1,0 +1,61 @@
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.field {
+    margin-bottom: 1.5rem;
+
+    label {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .input {
+        border-radius: 5px;
+        border: none;
+        background-color: #f4f4f4;
+        font-size: 1.5rem;
+        padding: 0.5rem 0.75rem;
+        width: 100%;
+
+        &::placeholder {
+            color: #999;
+        }
+    }
+
+    .checkbox {
+        font-size: 1.5rem;
+        margin-top: 0.5rem;
+        display: block;
+    }
+}
+
+.button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+
+    &.is-link {
+        background-color: #4a89dc;
+        color: #fff;
+
+        &:hover {
+            background-color: #6d9bf1;
+        }
+    }
+
+    &.is-light {
+        background-color: #f4f4f4;
+        color: #333;
+
+        &:hover {
+            background-color: #ddd;
+        }
+    }
+}

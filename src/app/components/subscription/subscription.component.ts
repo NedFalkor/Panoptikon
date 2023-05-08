@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/interfaces/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-subscription',
@@ -9,29 +9,51 @@ import { User } from 'src/app/interfaces/user';
 })
 export class SubscriptionComponent implements OnInit {
 
-  user: User = {
+  newUser: User = {
     username: '',
     email: '',
     password: ''
   };
 
-  errorMessage: string = '';
+  acceptedTerms = false;
 
-  constructor(
-    private userService: UserService,
-  ) { }
+  constructor(private userService: UserService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   onSubmit() {
-    this.userService.createUser(this.user).subscribe(
-      user => {
-        console.log(user);
-      },
-      error => {
-        console.error(error);
-        this.errorMessage = 'An error occurred while subscribing. Please try again later.';
-      }
-    );
+    console.log('Username: ', this.newUser.username);
+    console.log('Password: ', this.newUser.password);
+    console.log('Email: ', this.newUser.email);
+    console.log('Accepted terms: ', this.acceptedTerms);
+
+    const usernamePattern = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    if (!usernamePattern.test(this.newUser.username || '')) {
+      console.error('Username must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character (@$!%*#?&)');
+      return;
+    }
+
+    const passwordPattern = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    if (!passwordPattern.test(this.newUser.password || '')) {
+      console.error('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character (@$!%*#?&)');
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(this.newUser.email || '')) {
+      console.error('Invalid email address');
+      return;
+    }
+
+    this.userService.createUser(this.newUser)
+      .subscribe(
+        (user) => {
+          console.log('User created:', user);
+        },
+        (error) => {
+          console.error('Error creating user:', error);
+        }
+      );
   }
 }

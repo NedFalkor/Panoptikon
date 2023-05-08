@@ -1,29 +1,34 @@
 <div id="logo" class="title has-text-centered">
   <p class="my-1 mx-1 p-1">PANOPTIKON</p>
 </div>
-
 <h1>Se connecter</h1>
-
 <div class="field">
-  <label class="label">Nom d'utilisateur</label>
+  <label class="label">Nom d'utilisateur (10 caractères minimum, lettres et chiffres uniquement)</label>
   <div class="control has-icons-left">
-    <input class="input is-large" type="userName" placeholder="Nom d'utilisateur">
+    <input class="input is-large" type="text" pattern="[A-Za-z0-9]{10,}" placeholder="Nom d'utilisateur"
+      [(ngModel)]="newUser.username" name="username">
+
     <span class="icon is-medium is-left">
       <i class="fas fa-user fa-lg"></i>
     </span>
   </div>
+  <div *ngIf="username && username.length < 10" class="help is-danger">Le nom d'utilisateur doit comporter au moins 10
+    caractères</div>
 </div>
-
 <div class="field">
-  <label class="label">Mot de passe</label>
+  <label class="label">Mot de passe (8 caractères minimum, au moins une lettre majuscule, une lettre minuscule, un
+    chiffre et un caractère spécial)</label>
   <div class="control has-icons-left">
-    <input class="input is-large" type="password" placeholder="Mot de passe">
+    <input class="input is-large" type="password" pattern="^(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$"
+      placeholder="Mot de passe" [(ngModel)]="newUser.password" name="password">
     <span class="icon is-medium is-left">
       <i class="fas fa-lock fa-lg"></i>
     </span>
   </div>
+  <div *ngIf="password && !password.match(/^(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)"
+    class="help is-danger">Le mot de passe doit comporter au moins 8 caractères, une lettre majuscule, une lettre
+    minuscule, un chiffre et un caractère spécial</div>
 </div>
-
 <div class="field">
   <div class="control">
     <label class="checkbox">
@@ -32,10 +37,12 @@
     </label>
   </div>
 </div>
-
 <div class="field is-grouped">
   <div class="control">
-    <button class="button is-link" routerLink="/main-menu">Se connecter</button>
+    <button class="button is-link"
+      [disabled]="newUser.username.length < 10 || !newUser.password.match(/^(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)"
+      routerLink="/main-menu">Se connecter</button>
+
   </div>
   <div class="control">
     <button class="button is-link is-light">Annuler</button>
