@@ -11,7 +11,7 @@ export class AddVideoComponent {
 
   queryParams: any;
 
-  @ViewChild('videoForm') form: HTMLFormElement;
+  @ViewChild('videoForm') form: HTMLFormElement | undefined;
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
@@ -36,7 +36,6 @@ export class AddVideoComponent {
           window.location.reload();
         });
     });
-    // get the video file from the form
     const file = this.form.querySelector('input[type="file"]').files[0];
     const fileURL = URL.createObjectURL(file);
   }
