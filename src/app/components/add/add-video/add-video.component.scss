@@ -1,101 +1,71 @@
+// your-component-name.component.scss
+
 .content {
-  .card {
-    .card-header {
-      h2 {
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-      }
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-    .card-body {
-      input[type="file"] {
-        margin-bottom: 1rem;
-      }
+.card {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+}
 
-      #record-video-button {
-        margin-bottom: 1rem;
-      }
+.card-header {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
 
-      #recorded-video {
-        display: none;
-      }
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
 
-      #webcam-window {
-        margin-top: 1rem;
+input[type="file"] {
+  margin-bottom: 20px;
+}
 
-        #video-preview {
-          width: 100%;
-        }
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
 
-        #webcam-controls {
-          margin-top: 0.5rem;
-          display: flex;
-          align-items: center;
+#webcam-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-          #record-timer {
-            flex: 1;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-align: center;
-          }
+#webcam-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
 
-          button[type="button"] {
-            border-radius: 0.25rem;
-            font-size: 1rem;
-            font-weight: bold;
-            padding: 0.5rem 1rem;
+#record-timer {
+  font-size: 20px;
+  margin-right: 10px;
+}
 
-            &:focus {
-              outline: none;
-            }
+button.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
 
-            &.btn-primary {
-              background-color: #007bff;
-              border-color: #007bff;
-              color: #fff;
+.spinner-border {
+  margin-right: 10px;
+}
 
-              &:hover {
-                background-color: #0069d9;
-                border-color: #0062cc;
-                color: #fff;
-              }
-            }
-
-            &.btn-success {
-              background-color: #28a745;
-              border-color: #28a745;
-
-              &:hover {
-                background-color: #218838;
-                border-color: #1e7e34;
-              }
-            }
-
-            &.btn-danger {
-              background-color: #dc3545;
-              border-color: #dc3545;
-
-              &:hover {
-                background-color: #c82333;
-                border-color: #bd2130;
-              }
-            }
-          }
-
-          #recording-message {
-            flex: 1;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-align: center;
-          }
-
-          img {
-            margin-left: 0.5rem;
-            height: 24px;
-          }
-        }
-      }
-    }
-  }
+#recording-message {
+  font-size: 16px;
 }
