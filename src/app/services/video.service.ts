@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Video } from '../interfaces/video';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,10 @@ export class VideoService {
 
   constructor(private http: HttpClient) { }
 
-  uploadVideo(file: File, name: string, description: string): Observable<any> {
+  uploadVideo(file: Blob[], video: Video): Observable<any> {
     const formData = new FormData();
-    formData.append('file', file);
-    formData.append('name', name);
-    formData.append('description', description);
+    formData.append('file', file[0]);
+    formData.append('video', new Blob([JSON.stringify(video)], { type: "application/json" }));
     return this.http.post<any>(`${this.apiUrl}`, formData);
   }
 

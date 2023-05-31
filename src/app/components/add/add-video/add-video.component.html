@@ -1,28 +1,3 @@
-<!-- <div class="content" role="main">
-  <div class="card">
-    <div class="card-header">
-      <h2>Publier une vidéo</h2>
-    </div>
-    <div class="card-body">
-      <input type="file" accept=".mp4" (change)="onFileSelected($event)">
-      <div class="form-group">
-        <button type="button" class="btn btn-primary" id="record-video-button" (click)="showWebcam()">Enregistrer avec la caméra</button>
-        <video id="recorded-video" class="d-none"></video>
-        <div id="webcam-window">
-          <video #videoPreview autoplay controls></video>
-          <div id="webcam-controls">
-            <span id="record-timer">{{ remainingTime }}</span>
-            <button *ngIf="!isRecording" type="button" class="btn btn-primary" id="start-recording">Démarrer</button>
-            <button *ngIf="isRecording" type="button" class="btn btn-primary" id="stop-recording"
-              (click)="stopRecording()">Arrêter</button>
-            <div class="d-flex justify-content-center align-items-center mt-3">
-              <div class="spinner-border text-primary" *ngIf="isRecording"></div>
-              <div id="recording-message" *ngIf="!isRecording"></div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      
       <div class="content" role="main">
         <div class="card">
           <div class="card-header">
@@ -35,14 +10,9 @@
         <span class="m-1"></span>
         <video class="video" style="width: 360px !important;" controls #recordedVideo></video>
         <br>
-        <button class="btn btn-primary btn-lg" id="record-video-button" *ngIf="!isRecording" (click)="startRecording()">Enregistrer</button>
-        <button class="btn btn-warning btn-lg" *ngIf="isRecording" (click)="stopRecording()">Arrêter l'enregistrement</button>
-              <video id="recorded-video" class="d-none"></video>
+        <button class="btn btn-primary btn-lg" id="record-video-button" *ngIf="!isRecording" (click)="startRecording()"><span id="record-timer">{{ remainingTime }}</span>Enregistrer</button>
+        <button class="btn btn-warning btn-lg" *ngIf="isRecording" (click)="stopRecording()"><span id="record-timer">{{ remainingTime }}</span>Arrêter l'enregistrement</button>
                 <div id="webcam-controls">
-                  <span id="record-timer">{{ remainingTime }}</span>
-                  <button *ngIf="!isRecording" type="button" class="btn btn-primary" id="start-recording">Démarrer</button>
-                  <button *ngIf="isRecording" type="button" class="btn btn-primary" id="stop-recording"
-                    (click)="stopRecording()">Arrêter</button>
                   <div class="d-flex justify-content-center align-items-center mt-3">
                     <div class="spinner-border text-primary" *ngIf="isRecording"></div>
                     <div id="recording-message" *ngIf="!isRecording"></div>
