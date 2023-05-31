@@ -45,4 +45,3 @@ export class CommentService {
     return this.http.put<number>(url, null);
   }
 }
-

@@ -10,9 +10,9 @@ export class FileService {
 
   constructor(private http: HttpClient) { }
 
-  uploadFile(file: File): Observable<HttpEvent<any>> {
+  uploadFile(data: File): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
-    formData.append('file', file, file.name);
+    formData.append('data', data, data.name);
 
     const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
       reportProgress: true,
@@ -21,4 +21,5 @@ export class FileService {
 
     return this.http.request(req);
   }
+
 }
