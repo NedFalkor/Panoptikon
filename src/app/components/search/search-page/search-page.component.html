@@ -5,12 +5,12 @@
         <input type="name" class="form-control" id="search-text" aria-describedby="search-text" 
         placeholder="Rechercher une vidéo" 
         autofocus
-        (input)="onSearch($event.target.value)">
+        (input)="onSearch($event)">
       </div>
     </div>
     <div class="video-list">
       <div *ngFor="let video of filteredVideos">
-        <img src="{{video.thumbnailUrl}}" alt="{{video.title}}">
+        <img alt="{{video.title}}">
         <p>{{video.title}}</p>
       </div>
     </div>

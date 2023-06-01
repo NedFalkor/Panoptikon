@@ -9,19 +9,10 @@ import { ActivatedRoute } from '@angular/router';
 export class VideoViewComponent implements OnInit {
 
   queryParams: any;
-  @ViewChild('videoScreen') videoScreen: ElementRef<HTMLVideoElement>;
-  @ViewChild('videoDiv') videoDiv: ElementRef<HTMLDivElement>;
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.queryParams = params;
-      if (this.queryParams.video) {
-        this.videoScreen.nativeElement.src = "http://localhost:8080/video/${this.queryParams.video}";
-        this.videoDiv.nativeElement.style.display = 'block';
-        document.querySelector('#now-playing').innerText = 'Now playing ' + this.queryParams.video;
-      }
-    });
+
   }
 }
