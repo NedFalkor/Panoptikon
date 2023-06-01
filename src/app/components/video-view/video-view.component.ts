@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, OnDestroy, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { LikeCommentService } from 'src/app/services/like-comment.service';
 import { Comment } from 'src/app/interfaces/comment'
 import { CommentService } from 'src/app/services/comment.service';
 
@@ -90,14 +89,7 @@ export class VideoViewComponent implements OnInit, OnDestroy {
 
   like() {
     const newComment = this.createNewComment(this.username, 'some text');
-    this.commentService.createLikeComment(newComment, this.username).subscribe(
-      (likeComment: any) => {
-        return this.likeCommentService.getNumberOfLikesForComment(likeComment.id as number).subscribe(
-          (numLikes: number) => {
-            this.numLikes = numLikes;
-          }
-        );
-      },
+    this.commentService.createComment(newComment).subscribe(
       (error: any) => {
         console.error(error);
       }
@@ -105,17 +97,11 @@ export class VideoViewComponent implements OnInit, OnDestroy {
   }  
   
   dislike() {
-    this.commentService.deleteLikeComment(this.likeCommentId as number).subscribe(
-      () => {
-        return this.commentService.getNumberOfLikesForComment(this.likeCommentId as number).subscribe(
-          (numLikes: number) => {
-            this.numLikes = numLikes;
-          }
-        );
-      },
+    this.commentService.deleteComment(this.likeCommentId as number).subscribe(
       (error: any) => {
         console.error(error);
       }
     );
   }
+
 }
