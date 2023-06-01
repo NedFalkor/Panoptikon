@@ -19,7 +19,7 @@ export class VideoViewComponent implements OnInit, OnDestroy {
 
   queryParams: any = {};
 
-  videoSrc: string = '';
+  videoSrc: string = 'C:\Users\Administrateur\Videos\8995fec9-c3ff-4ed5-b3d8-1138ab928dd2.webm';
 
   videoUrls: string[] = [];
   currentVideoIndex = 0;

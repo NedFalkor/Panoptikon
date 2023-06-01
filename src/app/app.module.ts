@@ -13,12 +13,9 @@ import { VideoViewComponent } from './components/video-view/video-view.component
 import { AddUserComponent } from './components/add/add-user/add-user.component';
 import { FilterPipe } from './components/add/add-user/filterUser.pipe';
 import { WebcamModule } from 'ngx-webcam';
-import { NgxWebrtcModule } from 'ngx-webrtc';
-import { AddVideoModule } from "./components/add/add.module";
 import { CaptureImageComponent } from './components/account/capture-image/capture-image.component';
 import { FooterComponent } from './components/banners/footer/footer.component';
 import { HeaderComponent } from './components/banners/header/header.component';
-import { RegisterComponent } from './components/gatekeeper/register/register.component';
 import { SubscriptionComponent } from './components/gatekeeper/subscription/subscription.component';
 import { AddVideoComponent } from './components/add/add-video/add-video.component';
 
@@ -33,7 +30,6 @@ import { AddVideoComponent } from './components/add/add-video/add-video.componen
         AccountChannelComponent,
         SearchPageComponent,
         VideoViewComponent,
-        RegisterComponent,
         SubscriptionComponent,
         AddUserComponent,
         FilterPipe,
@@ -42,14 +38,12 @@ import { AddVideoComponent } from './components/add/add-video/add-video.componen
     providers: [],
     bootstrap: [AppComponent],
     imports: [
-      AddVideoModule,
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         FormsModule,
         HttpClientModule,
         WebcamModule,
-        NgxWebrtcModule,
     ]
 })
 export class AppModule { }
