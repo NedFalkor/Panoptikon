@@ -1,16 +1,17 @@
 .container {
     max-width: 800px;
     margin: 0 auto;
+}
 
-    h2 {
-        font-size: 24px;
-        margin-bottom: 20px;
-        text-align: center;
-    }
+.container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
-    .col-md-12 {
-        margin-bottom: 20px;
-    }
+.container .col-md-12 {
+    margin-bottom: 20px;
+}
 
 button {
     font-size: 18px;
@@ -24,20 +25,19 @@ button {
     align-items: center;
     height: 50px;
     width: 200px;
-
-    &:hover {
-        background-color: #c82333;
-    }
 }
 
-    #results {
-        font-size: 20px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
+button:hover {
+    background-color: #c82333;
+}
 
-    img {
-        display: block;
-        margin: 0 auto;
-    }
+#results {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
 }

@@ -11,7 +11,7 @@ import { Observable, Subject } from 'rxjs';
 export class CaptureImageComponent implements OnInit {
 
   private trigger: Subject<any> = new Subject();
-  public webcamImage!: WebcamImage;
+  public webcamImage?: WebcamImage;
   private nextWebcam: Subject<any> = new Subject();
   sysImage = '';
   isPhotoTaken = false;
