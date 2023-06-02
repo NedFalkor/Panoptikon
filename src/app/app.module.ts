@@ -17,6 +17,7 @@ import { AddUserComponent } from './components/add/add-user/add-user.component';
 import { FilterPipe } from './components/add/add-user/filterUser.pipe';
 import { WebcamModule } from 'ngx-webcam';
 import { CaptureImageComponent } from './components/account/account-settings/capture-image/capture-image.component';
+import { DisplayIfDirective } from './directives/display-if.directive';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { CaptureImageComponent } from './components/account/account-settings/cap
     AddUserComponent,
     FilterPipe,
     CaptureImageComponent,
+    DisplayIfDirective,
 
   ],
   imports: [

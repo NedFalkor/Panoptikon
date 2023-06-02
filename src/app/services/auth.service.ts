@@ -1,13 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { User } from '../interfaces/user';
+
+export enum AuthenticationStatus {
+  ANONYMOUS = 1,
+  AUTHENTICATED = 2,
+  USER = 3,
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  status: BehaviorSubject<AuthenticationStatus> = new BehaviorSubject<AuthenticationStatus>(AuthenticationStatus.ANONYMOUS);
+  connectedUser: BehaviorSubject<User|undefined> = new BehaviorSubject<User|undefined>(undefined);
 
   private baseUrl = 'http://localhost:3000';
 
@@ -36,4 +45,15 @@ export class AuthService {
       );
   }
 
-}
+  logout() {
+    this.status.next(AuthenticationStatus.ANONYMOUS);
+    this.connectedUser.next(undefined);
+    localStorage.removeItem("user");
+  }
+
+  is(status: keyof typeof AuthenticationStatus): boolean {
+    return (AuthenticationStatus[status]&this.status.value) == AuthenticationStatus[status];
+  }
+
+    
+  }
