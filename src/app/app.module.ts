@@ -6,11 +6,13 @@ import { AppRoutingModule } from './routes/app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SubscriptionComponent } from './components/subscription/subscription.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
