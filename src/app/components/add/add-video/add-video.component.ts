@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 
 export class AddVideoComponent {
 
-  queryParams: any;
+/*   queryParams: any;
 
   @ViewChild('videoForm') form: HTMLFormElement;
 
@@ -39,5 +39,5 @@ export class AddVideoComponent {
     // get the video file from the form
     const file = this.form.querySelector('input[type="file"]').files[0];
     const fileURL = URL.createObjectURL(file);
-  }
+  } */
 }

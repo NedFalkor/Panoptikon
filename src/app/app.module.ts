@@ -12,14 +12,11 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { AccountChannelComponent } from './components/account/account-channel/account-channel.component';
 import { SearchPageComponent } from './components/search/search-page/search-page.component';
 import { AddVideoComponent } from './components/add/add-video/add-video.component';
-import { VideoViewComponent } from './components/video-view/video-view.component';
-import { RegisterComponent } from './components/register/register.component';
 import { SubscriptionComponent } from './components/subscription/subscription.component';
 import { AddUserComponent } from './components/add/add-user/add-user.component';
 import { FilterPipe } from './components/add/add-user/filterUser.pipe';
 import { WebcamModule } from 'ngx-webcam';
 import { CaptureImageComponent } from './components/account/account-settings/capture-image/capture-image.component';
-import { VideoPLayerComponent } from './components/video-player/video-player.component';
 
 
 @NgModule({
@@ -31,13 +28,10 @@ import { VideoPLayerComponent } from './components/video-player/video-player.com
     AccountChannelComponent,
     SearchPageComponent,
     AddVideoComponent,
-    VideoViewComponent,
-    RegisterComponent,
     SubscriptionComponent,
     AddUserComponent,
     FilterPipe,
     CaptureImageComponent,
-    VideoPLayerComponent
 
   ],
   imports: [
