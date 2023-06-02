@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './routes/app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RegisterComponent } from './components/register/register.component';
 import { SubscriptionComponent } from './components/subscription/subscription.component';
 import { WebcamModule } from 'ngx-webcam';
 import { AccountSettingsComponent } from './components/account/account-settings/account-settings.component';
@@ -15,7 +14,6 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
     SubscriptionComponent,
     AccountSettingsComponent
   ],

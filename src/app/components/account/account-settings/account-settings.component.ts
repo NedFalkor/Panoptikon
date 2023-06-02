@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -28,9 +29,9 @@ export class AccountSettingsComponent implements OnInit {
     };
     this.userService.updateUser(updatedUser).subscribe(
       (user: User) => {
-        if (this.profilePictureUrl !== user.profilePictureUrl) {
+        /* if (this.profilePictureUrl !== user.profilePictureUrl) {
           this.profilePictureUrl = user.profilePictureUrl;
-        }
+        } */
         alert('Profile information updated successfully!');
       },
       (error) => {
@@ -52,7 +53,11 @@ export class AccountSettingsComponent implements OnInit {
   }
 
   onEmailChange() {
-    const updatedUser = { email: this.email };
+    const updatedUser = {
+      username: this.username,
+      email: this.email,
+      password: this.password
+    };
     this.userService.updateUser(updatedUser).subscribe(
       (user: User) => {
         alert('Email updated successfully!');

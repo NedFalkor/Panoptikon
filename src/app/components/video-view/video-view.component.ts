@@ -6,9 +6,9 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './video-view.component.html',
   styleUrls: ['./video-view.component.scss']
 })
-export class VideoViewComponent implements OnInit {
+export class VideoViewComponent {
 
-  queryParams: any;
+  /* queryParams: any;
   @ViewChild('videoScreen') videoScreen: ElementRef<HTMLVideoElement>;
   @ViewChild('videoDiv') videoDiv: ElementRef<HTMLDivElement>;
 
@@ -23,5 +23,5 @@ export class VideoViewComponent implements OnInit {
         document.querySelector('#now-playing').innerText = 'Now playing ' + this.queryParams.video;
       }
     });
-  }
+  } */
 }
