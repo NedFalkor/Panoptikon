@@ -1,7 +1,13 @@
-      <div class="content" role="main">
+<div class="content" role="main" [ngClass]="{'dark-mode': isDarkMode}">
+  <div class="title-container">
+    <h1 class="title">PANOPTIKON</h1>
+  </div>
+  <div class="logo-container">
+    <img src="./assets/images/Logo.png" alt="Panoptikon Logo" class="panoptikon-logo">
+  </div>
         <div class="card">
           <div class="card-header">
-            <h2>Publier une vidéo</h2>
+            <h2 class="title">Publier une vidéo</h2>
           </div>
           <div class="card-body">
             <input type="file" accept=".mp4">

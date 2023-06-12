@@ -26,6 +26,8 @@ export class AddVideoComponent implements OnDestroy {
  stream?: MediaStream;
  remainingTime = 30;
  showWebcamFlag = false;
+ isDarkMode: boolean = false;
+
 
  constructor(
   private videoService: VideoService
@@ -51,6 +53,10 @@ export class AddVideoComponent implements OnDestroy {
  toggleWebcam() {
    this.showWebcamFlag = !this.showWebcamFlag;
  }
+
+ toggleDarkMode() {
+  this.isDarkMode = !this.isDarkMode;
+}
 
  startRecording() {
    this.recordedBlobs = [];
