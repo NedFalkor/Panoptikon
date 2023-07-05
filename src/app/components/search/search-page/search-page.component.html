@@ -1,18 +1,22 @@
+<app-header></app-header>
+
 <div class="content" role="main">
-    <div class="card">
-      <div class="form-group">
-        <label for="search-text">Rechercher une vidéo</label>
-        <input type="name" class="form-control" id="search-text" aria-describedby="search-text" 
-        placeholder="Rechercher une vidéo" 
-        autofocus
-        (input)="onSearch($event)">
-      </div>
+  <div class="card">
+    <div class="form-group text-center">
+      <label for="search-text" class="search-label">Rechercher une vidéo</label>
+      <input type="name" class="form-control search-input" id="search-text" aria-describedby="search-text"
+        placeholder="Rechercher une vidéo" autofocus (input)="onSearch($event)">
+      <img src="./assets/images/Main Menu.jpg" alt="logo">
+      <img src="./assets/images/Main Menu.jpg" alt="logo">
+      <img src="./assets/images/Main Menu.jpg" alt="logo">
     </div>
-    <div class="video-list">
-      <div *ngFor="let video of filteredVideos">
-        <img alt="{{video.title}}">
-        <p>{{video.title}}</p>
-      </div>
-    </div>
-    
   </div>
+  <div class="video-list">
+    <div *ngFor="let video of filteredVideos">
+      <img alt="{{video.title}}">
+      <p>{{video.title}}</p>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,3 +1,21 @@
+.text-center {
+    text-align: center;
+}
+
+.search-label {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.search-input {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 .video-list {
     display: flex;
     flex-wrap: wrap;
