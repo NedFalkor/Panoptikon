@@ -13,6 +13,8 @@ import { AccountModule } from './components/account/account.module';
 import { AddModule } from './components/add/add.module';
 import { MainMenuModule } from './components/main-menu/main-menu.module';
 import { CaptureImageComponent } from './components/account/capture-image/capture-image.component';
+import { HeaderComponent } from './components/banners/header/header.component';
+import { FooterComponent } from './components/banners/footer/footer.component';
 
 
 @NgModule({
@@ -20,13 +22,12 @@ import { CaptureImageComponent } from './components/account/capture-image/captur
     AppComponent,
     RegisterComponent,
     SubscriptionComponent,
-    CaptureImageComponent
+    CaptureImageComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
-    MainMenuModule,
-    AccountModule,
     AddModule,
-    MainMenuModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
