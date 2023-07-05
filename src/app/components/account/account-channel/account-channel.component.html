@@ -1,22 +1,24 @@
+<app-header></app-header>
+
 <div class="content" role="main">
-    <div class="card">
-      <div class="card-header">
-       <h2>Mes vidéos</h2>
-      </div>
-      <div class="card-body">
-        <ul class="video-list">
-          <li *ngFor="let video of videos">
-            <div class="thumbnail">
-              <img src="{{video}}" alt="{{video.title}}">
-            </div>
-            <div class="details">
-              <h3>{{video.title}}</h3>
-              <p>{{video.description}}</p>
-            </div>
-          </li>
-        </ul>
-      </div>
+  <div class="card">
+    <div class="card-header">
+      <h2 class="text-center">Mes vidéos</h2>
+    </div>
+    <div class="card-body">
+      <ul class="video-list">
+        <li *ngFor="let video of videos">
+          <div class="thumbnail">
+            <img src="{{video}}" alt="{{video.title}}">
+          </div>
+          <div class="details">
+            <h3>{{video.title}}</h3>
+            <p>{{video.description}}</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
+</div>
 
-  <app-footer></app-footer>
+<app-footer></app-footer>
