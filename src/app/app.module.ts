@@ -10,12 +10,16 @@ import { SubscriptionComponent } from './components/subscription/subscription.co
 import { WebcamModule } from 'ngx-webcam';
 import { AccountSettingsComponent } from './components/account/account-settings/account-settings.component';
 import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SubscriptionComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
