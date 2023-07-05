@@ -1,0 +1,15 @@
+.card-header {
+    display: flex;
+    justify-content: center; // Centrer horizontalement
+    align-items: center; // Centrer verticalement
+}
+
+.card-header h2 {
+    margin: 0; // Supprimer les marges par défaut du titre
+}
+
+.small-image {
+    width: 400px;
+    height: 400px;
+    padding: 15px;
+}

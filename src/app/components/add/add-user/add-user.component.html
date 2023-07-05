@@ -1,29 +1,35 @@
+<app-header></app-header>
+
 <div class="content" role="main">
   <div class="card">
-    <div class="card-header">
-      <h2>Ajouter un utilisateur</h2>
+    <div class="card-header text-center">
+      <h2 class="text-center">Ajouter un utilisateur</h2>
     </div>
     <div class="card-body">
-      <input type="text" class="form-control" id="search-text" aria-describedby="search-text" 
-        placeholder="Rechercher un utilisateur" autofocus 
-        [(ngModel)]="searchText" (keyup)="searchUsers()">      
+      <input type="text" class="form-control" id="search-text" aria-describedby="search-text"
+        placeholder="Rechercher un utilisateur" autofocus [(ngModel)]="searchText" (keyup)="searchUsers()">
       <div class="search-results">
         <div class="user" *ngFor="let user of matchingUsers">
           <div class="profile-picture" [style.background-image]="'url(' + user.profilePicture + ')'"></div>
           <div class="username">{{user.username}}</div>
         </div>
-        <div *ngIf="matchingUsers.length == 0">Aucun utilisateur trouvé</div>
+        <img src="./assets/images/default.png" class="small-image">
+        <img src="./assets/images/default.png" class="small-image">
+        <img src="./assets/images/default.png" class="small-image">
+        <img src="./assets/images/default.png" class="small-image">
+        <!-- <div *ngIf="matchingUsers.length == 0">Aucun utilisateur trouvé</div> -->
       </div>
     </div>
   </div>
-  <div class="card">
+  <!-- <div class="card">
     <div class="card-header">
       <h2>Résultats de recherche</h2>
     </div>
     <div class="card-body">
-      <input type="text" class="form-control" id="search-text" aria-describedby="search-text" 
-      placeholder="Rechercher un utilisateur" autofocus 
-      [(ngModel)]="searchText" (keyup)="searchUsers()">      <div class="search-results"></div>
-    </div>
-  </div>
+      <input type="text" class="form-control" id="search-text" aria-describedby="search-text"
+        placeholder="Rechercher un utilisateur" autofocus [(ngModel)]="searchText" (keyup)="searchUsers()">
+      <div class="search-results"></div>
+    </div> -->
 </div>
+
+<app-footer></app-footer>

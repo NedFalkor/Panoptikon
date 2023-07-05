@@ -9,35 +9,35 @@ import { ActivatedRoute } from '@angular/router';
 
 export class AddVideoComponent {
 
-  queryParams: any;
+  // queryParams: any;
 
-  @ViewChild('videoForm') form: HTMLFormElement;
+  // @ViewChild('videoForm') form: HTMLFormElement;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  // constructor(private activatedRoute: ActivatedRoute) { }
 
-  ngOnInit() {
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.queryParams = params;
-    });
-  }
+  // ngOnInit() {
+  //   this.activatedRoute.queryParams.subscribe(params => {
+  //     this.queryParams = params;
+  //   });
+  // }
 
-  ngAfterViewInit(): void {
-    this.form.addEventListener('submit', (event) => {
-      event.preventDefault();
+  // ngAfterViewInit(): void {
+  //   this.form.addEventListener('submit', (event) => {
+  //     event.preventDefault();
 
-      let data = new FormData(this.form);
+  //     let data = new FormData(this.form);
 
-      fetch('http://localhost:8080/video', {
-        method: 'POST',
-        body: data
-      })
-        .then(result => result.text())
-        .then(_ => {
-          window.location.reload();
-        });
-    });
-    // get the video file from the form
-    const file = this.form.querySelector('input[type="file"]').files[0];
-    const fileURL = URL.createObjectURL(file);
-  }
+  //     fetch('http://localhost:8080/video', {
+  //       method: 'POST',
+  //       body: data
+  //     })
+  //       .then(result => result.text())
+  //       .then(_ => {
+  //         window.location.reload();
+  //       });
+  //   });
+  //   // get the video file from the form
+  //   const file = this.form.querySelector('input[type="file"]').files[0];
+  //   const fileURL = URL.createObjectURL(file);
+  // }
 }
