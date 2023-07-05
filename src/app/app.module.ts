@@ -10,6 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { VideoViewComponent } from './components/video-view/video-view.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FooterComponent } from './components/footer/footer.component';
     RegisterComponent,
     MainMenuComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    VideoViewComponent
   ],
   imports: [
     BrowserModule,
