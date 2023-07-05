@@ -7,12 +7,18 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SubscriptionComponent } from './components/subscription/subscription.component';
 import { RegisterComponent } from './components/register/register.component';
+import { MainMenuComponent } from './components/main-menu/main-menu.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SubscriptionComponent,
-    RegisterComponent
+    RegisterComponent,
+    MainMenuComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
