@@ -1,7 +1,12 @@
-<!-- <div id="logo" class="title has-text-centered">
-  <p class="my-1 mx-1 p-1">PANOPTIKON</p>
+<div class="title">
+  <h1 class="silk-screen-font">PANOPTIKON</h1>
+  <div class="logo-container">
+    <img src="./assets/images/Logo.png" alt="Panoptikon Logo" class="panoptikon-logo">
+  </div>
 </div>
+
 <h1>Se connecter</h1>
+
 <div class="field">
   <label class="label">Nom d'utilisateur (10 caractères minimum, lettres et chiffres uniquement)</label>
   <div class="control has-icons-left">
@@ -12,9 +17,10 @@
       <i class="fas fa-user fa-lg"></i>
     </span>
   </div>
-  <div *ngIf="username && username.length < 10" class="help is-danger">Le nom d'utilisateur doit comporter au moins 10
-    caractères</div>
+  <div *ngIf="newUser.username && newUser.username.length < 10" class="help is-danger">Le nom d'utilisateur doit
+    comporter au moins 10 caractères</div>
 </div>
+
 <div class="field">
   <label class="label">Mot de passe (8 caractères minimum, au moins une lettre majuscule, une lettre minuscule, un
     chiffre et un caractère spécial)</label>
@@ -25,10 +31,10 @@
       <i class="fas fa-lock fa-lg"></i>
     </span>
   </div>
-  <div *ngIf="password && !password.match(/^(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)"
-    class="help is-danger">Le mot de passe doit comporter au moins 8 caractères, une lettre majuscule, une lettre
+  <div class="help is-danger">Le mot de passe doit comporter au moins 8 caractères, une lettre majuscule, une lettre
     minuscule, un chiffre et un caractère spécial</div>
 </div>
+
 <div class="field">
   <div class="control">
     <label class="checkbox">
@@ -37,14 +43,12 @@
     </label>
   </div>
 </div>
+
 <div class="field is-grouped">
   <div class="control">
-    <button class="button is-link"
-      [disabled]="newUser.username.length < 10 || !newUser.password.match(/^(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)"
-      routerLink="/main-menu">Se connecter</button>
-
+    <button class="button is-link" routerLink="/main-menu">Se connecter</button>
   </div>
   <div class="control">
     <button class="button is-link is-light">Annuler</button>
   </div>
-</div> -->
+</div>

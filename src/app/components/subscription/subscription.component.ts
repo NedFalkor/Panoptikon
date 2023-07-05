@@ -9,6 +9,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class SubscriptionComponent implements OnInit {
 
+  username: string = '';
+
   newUser: User = {
     username: '',
     email: '',
